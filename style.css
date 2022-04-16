@@ -24,6 +24,7 @@ body{
     --tabBackground:rgb(37, 37, 38);
     --tabColor:white;
     --footerBackground:rgb(20, 122, 204);
+    --contentPageColor:white;
     --footerColor:white;
 }
 .lightTheme{
@@ -33,12 +34,14 @@ body{
     --closeColor: white;
     --navBarBackground:rgb(240, 240, 240);
     --menuBackground:rgb(221,214,193);
+    --menuBeforeBackground:black;
     --menuColor:rgb(131, 131, 131);
     --iconBackground:rgb(181,137,0);
     --iconColor:white;
     --fileListBackground:rgb(238,232,213);
     --fileListColor:black;
     --codePageBackground:rgb(253,246,227);
+    --contentPageColor: black;
     --tabBackground:rgb(217,210,194);
     --tabColor:black;
     --footerBackground:rgb(238,232,213);
@@ -76,7 +79,7 @@ body{
     background-color: var(--navBarBackground);
     padding: 10px;
     display: flex;
-    font-size: 15px;
+    font-size: 16px;
     letter-spacing: .2px;
     align-items: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -107,7 +110,7 @@ body{
 }
 .menu::before{
     content: "";
-    width: 2px;
+    width: 4px;
     height: 70px;
     background-color: var(--menuBeforeBackground);
     position: absolute;
@@ -137,11 +140,6 @@ body{
     bottom: -8px;
     left: 20px;
 }
-.filerow{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
 .fileIcon{
     font-size: 40px !important;
 }
@@ -151,27 +149,43 @@ body{
       padding: 5px;  
 }
 .fileStyle{
-    padding: 5px 28px;
+    padding: 0px 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 19px;
 }
 .fileAlign{
-    padding-right: 5px;
      font-size: 20px;
-     font-weight: bold;
+     padding: 5px;
 }
 .fileBackground{
     background-color: var(--menuBackground);
 }
 .tabFileStyle{
     background-color: var(--codePageBackground);
-    padding: 15px 30px;
+    padding: 15px 35px;
+    text-align: center;
 }
 .ashStyle{
     color :#519aba;
-    padding-right: 20px;
+    padding-right: 15px;
+    letter-spacing: 1px;
+}
+.tabStyle{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.tabFont{
+    font-size: 19px;
+    letter-spacing: 0.5px;
+    font-family: sans-serif;
+}
+.highlight{
+    color: var(--fileListColor);
 }
 .arrowColor{
     color: #cc6d2e;
-    padding: 5px;
+    /* padding: 5px; */
 }
 .fileList{
     display: flex;
@@ -182,6 +196,8 @@ body{
 }
 .column{
     padding-right: 10px;
+    display: flex;
+    gap: 20px;
 }
 .explorerNxt{
     display: flex;
@@ -200,6 +216,9 @@ body{
     display: flex;
     justify-content: space-between;
 }
+.content{
+    color: var(--contentPageColor);
+}
 .file{
     display: flex;
     height: 500px;
@@ -210,7 +229,7 @@ body{
 .codePage{
     background-color: var(--codePageBackground);
     display: grid;
-    grid-template-rows: 5.5% 94.5%;
+    grid-template-rows: 5% 95%;
 }
 .tab{
     background-color: var(--tabBackground);
@@ -224,7 +243,7 @@ body{
     display: flex;
     gap: 20px;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 .footer{
     display: flex;
@@ -241,6 +260,9 @@ body{
     gap: 8px;
     padding-left: 30px;
     box-sizing: border-box;
+}
+.contentText{
+    padding: 15px 45px;
 }
 .footerEnd{
     display: flex;
