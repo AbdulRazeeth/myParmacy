@@ -1,0 +1,277 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+}
+.darkTheme{
+    --titleBarBackground:rgb(51, 51, 51);
+    --titleBarColor:#fff;
+    --closeBackground:rgb(233, 84, 32);
+    --closeColor: white;
+    --navBarBackground:rgb(240, 240, 240);
+    --menuBackground:rgb(51, 51, 51);
+    --menuColor:rgb(131, 131, 131);
+    --menuBeforeBackground:#fff;
+    --iconBackground:rgb(20, 125, 224);
+    --iconColor:white;
+    --fileListBackground:rgb(37, 37, 38);
+    --fileListColor:white;
+    --codePageBackground:rgb(30, 30, 30);
+    --tabBackground:rgb(37, 37, 38);
+    --tabColor:white;
+    --footerBackground:rgb(20, 122, 204);
+    --contentPageColor:white;
+    --footerColor:white;
+}
+.lightTheme{
+    --titleBarBackground:rgb(51, 51, 51);
+    --titleBarColor:#fff;
+    --closeBackground:rgb(233, 84, 32);
+    --closeColor: white;
+    --navBarBackground:rgb(240, 240, 240);
+    --menuBackground:rgb(221,214,193);
+    --menuBeforeBackground:black;
+    --menuColor:rgb(131, 131, 131);
+    --iconBackground:rgb(181,137,0);
+    --iconColor:white;
+    --fileListBackground:rgb(238,232,213);
+    --fileListColor:black;
+    --codePageBackground:rgb(253,246,227);
+    --contentPageColor: black;
+    --tabBackground:rgb(217,210,194);
+    --tabColor:black;
+    --footerBackground:rgb(238,232,213);
+}
+.container{
+    display: grid;
+    grid-template-rows: 3.6vh 2.6vh 90.8vh 3vh;
+}
+.titleBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--titleBarBackground);
+    padding: 10px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: bolder;
+    color: var(--titleBarColor);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.close{
+    background-color: var(--closeBackground);
+    color: var(--closeColor);
+    border-radius: 50%;
+}
+.titleIcon{
+    font-size: 16px !important;
+}
+.controlIcon{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.navBar{
+    background-color: var(--navBarBackground);
+    padding: 10px;
+    display: flex;
+    font-size: 16px;
+    letter-spacing: .2px;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.menuList{
+    display: flex;
+    gap: 15px;
+}
+.menuList li{
+    list-style-type: none;
+}
+.contentArea{
+    display: grid;
+    grid-template-columns: 3.6vw 20.4vw 76vw;
+    grid-template-rows: 100%;
+    z-index: -1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.menu{
+    background-color: var(--menuBackground);
+    color: var(--menuColor);
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.menu::before{
+    content: "";
+    width: 2px;
+    height: 70px;
+    background-color: var(--menuBeforeBackground);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.icon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+}
+.icon::after{
+    content: '1';
+    position: absolute;
+    background-color: var(--iconBackground);
+    color: var(--iconColor);
+    width: 20px;
+    text-align: center;
+    /* vertical-align: middle; */
+    height: 20px;
+    border-radius: 50%;
+    font-size: 15px;
+    padding: 3px;
+    font-weight: bolder;
+    bottom: -8px;
+    left: 20px;
+}
+.fileIcon{
+    font-size: 40px !important;
+}
+.vscode{
+    display: flex;
+    align-items: center;
+      padding: 5px;  
+}
+.fileStyle{
+    padding: 0px 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 19px;
+}
+.fileAlign{
+     font-size: 20px;
+     padding: 5px;
+}
+.fileBackground{
+    background-color: var(--menuBackground);
+}
+.tabFileStyle{
+    background-color: var(--codePageBackground);
+    padding: 15px 35px;
+    text-align: center;
+}
+.ashStyle{
+    color :#519aba;
+    padding-right: 15px;
+    letter-spacing: 1px;
+}
+.tabStyle{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.tabFont{
+    font-size: 19px;
+    letter-spacing: 0.5px;
+    font-family: sans-serif;
+}
+.highlight{
+    color: var(--fileListColor);
+}
+.arrowColor{
+    color: #cc6d2e;
+    /* padding: 5px; */
+}
+.fileList{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color:  var(--fileListBackground);
+    color: var(--fileListColor);
+}
+.column{
+    padding-right: 10px;
+    display: flex;
+    gap: 20px;
+}
+.explorerNxt{
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 0.5px;
+    /* padding: 5px; */
+}
+.explorerIcon{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-right: 5px;
+}
+.explorer{
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.content{
+    color: var(--contentPageColor);
+}
+.file{
+    display: flex;
+    flex-direction: column;
+    /* padding: 10px 30px; */
+    line-height: 2;
+}
+.codePage{
+    background-color: var(--codePageBackground);
+    display: grid;
+    grid-template-rows: 5% 95%;
+}
+.tab{
+    background-color: var(--tabBackground);
+    display: flex;
+    align-items: center;
+    /* padding: 10px; */
+    justify-content: space-between;
+    color: var(--tabColor);
+}
+.tabList{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-start;
+}
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--footerBackground);
+    color: var(--footerColor);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+.start{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+.contentText{
+    padding: 15px 45px;
+}
+.footerEnd{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    padding-right: 30px;
+    list-style-type: none;
+}
+.listAlign{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
