@@ -14,18 +14,36 @@ body{
     --closeColor: white;
     --navBarBackground:rgb(240, 240, 240);
     --menuBackground:rgb(51, 51, 51);
-    --menuColor:rgb(131, 131, 131);
+    --menuColor:rgb(131, 131, 131); 
     --menuBeforeBackground:#fff;
     --iconBackground:rgb(20, 125, 224);
     --iconColor:white;
     --fileListBackground:rgb(37, 37, 38);
-    --fileListColor:white;
+    --fileListColor:#cccccc;
+    --explorerColor:rgb(187, 187, 187);
+    --pathPageBackground:#1e1e1e;
     --codePageBackground:rgb(30, 30, 30);
     --tabBackground:rgb(37, 37, 38);
     --tabColor:white;
     --footerBackground:rgb(20, 122, 204);
     --contentPageColor:white;
     --footerColor:white;
+    --iconHoverColor:white;
+    --numberColor:#858585;
+    --tagOpenClose:#808080;
+    --elementsColor:#569cd6;
+    --attributeColor:#9cdcfe;
+    --separatorColor:#d4d4d4;
+    --valueColor:#ce9178;
+    --contentColor:#d4d4d4;
+    --scrollBackgroundColor:rgb(37, 37, 38);
+    --thumbBackgroundColor:rgba(121, 121, 121, 0.4);
+    --shadowShades:rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    --tabHoverColor: white;
+    --styleTitle:#d7ba7d;
+    --styleNoValue:#b5cea8;
+    --styleValueAttribute:#dcdcaa;
+    --colorBoxBorder:white;
 }
 .lightTheme{
     --titleBarBackground:rgb(51, 51, 51);
@@ -39,16 +57,36 @@ body{
     --iconBackground:rgb(181,137,0);
     --iconColor:white;
     --fileListBackground:rgb(238,232,213);
-    --fileListColor:black;
+    --fileListColor:#616161;
+    --explorerColor:gb(88, 110, 117);
     --codePageBackground:rgb(253,246,227);
+    --pathPageBackground:#fdf6e3;
     --contentPageColor: black;
     --tabBackground:rgb(217,210,194);
     --tabColor:black;
     --footerBackground:rgb(238,232,213);
+    --iconHoverColor:rgba(0, 0, 0, 0.74);
+    --numberColor:#237893;
+    --tagOpenClose:#93a1a1;
+    --elementsColor:#268bd2;
+    --attributeColor:#93a1a1;
+    --separatorColor:#657b83;
+    --valueColor:#2aa198;
+    --contentColor:#657b83;
+    --scrollBackgroundColor:#ddd6c1;
+    --thumbBackgroundColor:rgba(100, 100, 100, 0.4);
+    --shadowShades: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    --tabHoverColor:rgb(51, 51, 51);
+    --styleTitle:#268bd2;
+    --styleNoValue:#d33682;
+    --styleValueAttribute:#268bd2;
+    --colorBoxBorder:black;
 }
 .container{
+    width: 100vw;
+    height: 100vh;
     display: grid;
-    grid-template-rows: 3.6vh 2.6vh 90.8vh 3vh;
+    grid-template-rows: 3.6% 2.6% 90.8% 3%;
 }
 .titleBar{
     display: flex;
@@ -69,6 +107,12 @@ body{
 }
 .titleIcon{
     font-size: 16px !important;
+}
+.hide{
+    visibility: hidden !important;
+}
+.tabStyle:hover .hide{
+    visibility: inherit !important;
 }
 .controlIcon{
     display: flex;
@@ -93,9 +137,8 @@ body{
 }
 .contentArea{
     display: grid;
-    grid-template-columns: 3.6vw 20.4vw 76vw;
+    grid-template-columns: 3.6% 20.4% 76%;
     grid-template-rows: 100%;
-    z-index: -1;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .menu{
@@ -123,6 +166,7 @@ body{
     align-items: center;
     gap: 30px;
     position: relative;
+    font-weight: lighter;
 }
 .icon::after{
     content: '1';
@@ -140,18 +184,29 @@ body{
     bottom: -8px;
     left: 20px;
 }
+.fileIcon:hover{
+    color: var(--iconHoverColor);
+}
 .fileIcon{
-    font-size: 40px !important;
+    font-size: 35px !important;
+    font-weight: lighter !important;
 }
 .vscode{
     display: flex;
     align-items: center;
       padding: 5px;  
 }
+.icAlign{
+    padding-right: 15px;
+}
 .fileStyle{
-    padding: 0px 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 19px;
+    display: flex;
+    gap: 15px;
+    padding: 3px 20px;
+    align-items: center;
+}
+.fileBackground{
+    background-color: var(--menuBackground);
 }
 .fileAlign{
      font-size: 20px;
@@ -160,32 +215,43 @@ body{
 .fileBackground{
     background-color: var(--menuBackground);
 }
-.tabFileStyle{
-    background-color: var(--codePageBackground);
-    padding: 15px 35px;
-    text-align: center;
-}
 .ashStyle{
     color :#519aba;
-    padding-right: 15px;
-    letter-spacing: 1px;
+    font-weight: bolder;
+    font-size: 18px;
 }
 .tabStyle{
-    width: 100%;
+    width: 160px;
+    height: 4.5vh;
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
+    color: var(--fileListColor);
+    /* padding: 12px 0px; */
 }
-.tabFont{
-    font-size: 19px;
-    letter-spacing: 0.5px;
-    font-family: sans-serif;
+.tabBack:hover{
+    background-color: var(--codePageBackground);
+    color: var(--tabHoverColor);
+}
+.partClose{
+    font-size: 18px !important;
+}
+.partClose:hover{
+    background-color: gray;
+    border-radius: 10px;
+}
+.mainElement{
+    display: flex;
+    gap: 8px;
+    align-items: center;
 }
 .highlight{
     color: var(--fileListColor);
 }
 .arrowColor{
     color: #cc6d2e;
-    /* padding: 5px; */
+    font-weight: bold;
+    font-size: 17px;
 }
 .fileList{
     display: flex;
@@ -205,19 +271,43 @@ body{
     letter-spacing: 0.5px;
     /* padding: 5px; */
 }
-.explorerIcon{
+.fileList:hover .explorerIcon{
     display: flex;
+}
+.explorerIcon{
+    display: none;
     align-items: center;
     gap: 10px;
     padding-right: 5px;
 }
 .explorer{
-    padding: 15px 30px;
+    padding: 15px 0px 0px 20px;
     display: flex;
     justify-content: space-between;
 }
+.fileHead{
+    font-size: 15px;
+    font-weight: 700;
+}
+.exStyle{
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--explorerColor);
+}
 .content{
+    display: flex;
+    align-items: center;
+    gap: 5px;
     color: var(--contentPageColor);
+    /* box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px; */
+    box-shadow: var(--shadowShades);
+    background-color: var(--pathPageBackground);
+}
+.path{
+    display: flex;
+    align-items: center;
+    color: var(--fileListColor);
+    padding-left: 15px;
 }
 .file{
     display: flex;
@@ -228,7 +318,14 @@ body{
 .codePage{
     background-color: var(--codePageBackground);
     display: grid;
-    grid-template-rows: 5% 95%;
+    grid-template-rows: 5% 4% 91%;
+}
+.codeWrite{
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: auto;
 }
 .tab{
     background-color: var(--tabBackground);
@@ -240,8 +337,8 @@ body{
 }
 .tabList{
     display: flex;
-    gap: 20px;
     align-items: center;
+    width: 100%;
     justify-content: flex-start;
 }
 .footer{
@@ -260,9 +357,6 @@ body{
     padding-left: 30px;
     box-sizing: border-box;
 }
-.contentText{
-    padding: 15px 45px;
-}
 .footerEnd{
     display: flex;
     gap: 30px;
@@ -274,4 +368,235 @@ body{
     display: flex;
     align-items: center;
     gap: 5px;
+}
+.curPointer{
+    cursor: pointer;
+}
+.curText{
+    cursor: text;
+}
+.curDefault{
+    cursor: default;
+}
+.tagOC{
+    color: var(--tagOpenClose);
+}
+.elements{
+    color: var(--elementsColor);
+}
+.attribute{
+    color: var(--attributeColor);
+}
+.separator{
+    color: var(--separatorColor);
+}
+.value{
+    color: var(--valueColor);
+}
+.codeAlign{
+    position: absolute;
+    left: 70px;
+}
+.contentColor{
+    color:var(--contentColor);
+}
+.numberColor{
+    position: absolute;
+    left: 20px;
+    color: var(--numberColor);
+}
+::-webkit-scrollbar{
+    width: 15px;
+    background-color:  var( --scrollBackgroundColor); 
+    box-sizing:  0 0 5px grey;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--thumbBackgroundColor);
+}
+.smallFontSize{
+    --fontSize:16px;
+}
+.normalFontSize{
+    --fontSize:18px
+}
+.mediumFontSize{    
+    --fontSize:20px;
+}
+.largeFontSize{    
+    --fontSize:22px;
+}
+.xtraLargeFontSize{
+    --fontSize:24px
+}
+.styleAttribute{
+    font-family: monospace;
+    font-weight: normal;
+    font-size: var(--fontSize);
+    font-feature-settings: "liga" 0,"calt" 0;
+    line-height: 24px;
+    letter-spacing: 0px;
+}
+.activeOne{
+    background-color: var(--codePageBackground);
+    /* border: 1px solid #444444; */
+    height: 600px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    transform: scalex(0.18) scaleY(0.15);
+    transform-origin: 0% 0%;
+}
+.activeOne1{
+    position: relative;
+    box-shadow: var(--shadowShades)
+}
+.alignBorder{
+    width: auto;
+    height: auto;
+    border-left: 1px solid #444444;
+}
+.line{
+    position: relative;
+}
+.line::before{
+    content: '';
+    width: 1px;
+    height: 292px;
+    background-color: #918e8e;
+    position: absolute;
+    top: 20px;
+    left: 0;
+}
+.lineMain{
+    position: relative;
+}
+.lineMain::before{
+    content: '';
+    width: 1px;
+    height: 920px;
+    background-color: #918e8e;
+    position: absolute;
+    top: 20px;
+    left: 0;
+}
+.lineTwo{
+    position: relative;
+}
+.lineTwo::before{
+    content: '';
+    width: 1px;
+    height: 200px;
+    background-color: #918e8e;
+    position: absolute;
+    top: 20px;
+    left: 0px;
+}
+.lineHead{
+    position: relative;
+}
+.lineHead::before{
+    content: '';
+    width: 1px;
+    height: 100px;
+    background-color: #858585;
+    position: absolute;
+    top: 20px;
+    left: 0px;
+}
+.dynamic{
+    display:  none; 
+}
+.styleTitle{
+    color:var(--styleTitle);
+}
+.styleNoValue{
+    color: var(--styleNoValue);
+}
+.styleValueAttribute{
+    color: var(--styleValueAttribute);
+}
+.codeAlignStyle{
+    position: absolute;
+    left: 100px;
+}
+.color-box{
+    display: inline-block;
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+    /* background-color: #F56D91; */
+    border: 1px solid var(--colorBoxBorder);
+}
+.color1{
+    background-color: #f56d91;
+}
+.color2{
+    background-color: white;
+}
+.color3{
+    background-color:  #F190B7;
+}
+.styleLineOne{
+    position: relative;
+}
+.styleLineOne::before{
+    content: '';
+    width: 1px;
+    height: 80px;
+    background-color: #918e8e;
+    position: absolute;
+    top: 15px;
+}
+.styleLineTwo{
+    position: relative;
+}
+.styleLineTwo::before{
+    content: '';
+    width: 1px;
+    height: 150px;
+    background-color: #918e8e;
+    position: absolute;
+    top: 20px;
+}
+.styleLineThree{
+    position: relative;
+}
+.styleLineThree::before{
+    content: '';
+    width: 1px;
+    height: 50px;
+    top: 20px;
+    position: absolute;
+    background-color: #918e8e;
+}
+.styleLineFour{
+    position: relative;
+}
+.styleLineFour::before{
+    content: '';
+    width: 1px;
+    height: 27px;
+    top: 20px;
+    position: absolute;
+    background-color: #918e8e;
+}
+.styleLineFive{
+    position: relative;
+}
+.styleLineFive::before{
+    content: '';
+    width: 1px;
+    height: 120px;
+    top: 20px;
+    position: absolute;
+    background-color: #918e8e;
+}
+#css,.dynamic:target{
+    display: block;
+}
+.dynamic:target ~ #css{
+    display: none;
+}
+a{
+    text-decoration: none;
 }

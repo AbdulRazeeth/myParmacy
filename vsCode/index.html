@@ -9,10 +9,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
       rel="stylesheet">
 </head>
-<!-- To change to lightTheme the body class to lightTheme -->
-<body class="darkTheme">
+<!-- To change to lightTheme change the body class to lightTheme -->
+<body class="darkTheme normalFontSize">
     <div class="container">
-        <div class="titleBar">
+        <div class="titleBar curDefault">
             <span></span>
             <span><h3>index.html-vsCode-Visual Studio Code</h3></span>
             <span class="controlIcon">
@@ -27,7 +27,7 @@
                 </span>    
             </span>
         </div>
-        <div class="navBar">
+        <div class="navBar curDefault">
             <ul class="menuList">
                 <li> File </li>
                 <li> Edit </li>
@@ -41,94 +41,374 @@
         </div>
         <div class="contentArea">
             <div class="menu">
-                <div class="icon">
-                <span class="material-icons-outlined fileIcon highlight">
-                    file_copy
-                </span>
-                <span class="material-icons-outlined fileIcon">
-                    search
-                </span>
-                <span class="material-icons-outlined fileIcon">
-                    hub
-                </span>
-                <span class="material-icons-outlined fileIcon">
-                    play_arrow
-                </span>
-                <span class="material-icons-outlined fileIcon">
-                    widgets
-                </span>
-                </div>
-                <div class="icon">
-                <span class="material-icons-outlined fileIcon">
-                    account_circle
-                </span>
-                <span class="material-icons-outlined fileIcon">
-                    settings
-                </span>
+                <div class="icon curPointer">
+                    <span class="material-icons-outlined fileIcon highlight ">
+                        file_copy
+                    </span>
+                    <span class="material-icons-outlined fileIcon">
+                        search
+                    </span>
+                    <span class="material-icons-outlined fileIcon">
+                        hub
+                    </span>
+                    <span class="material-icons-outlined fileIcon">
+                        play_arrow
+                    </span>
+                    <span class="material-icons-outlined fileIcon">
+                        widgets
+                    </span>
+                    </div>
+                    <div class="icon curPointer">
+                    <span class="material-icons-outlined fileIcon">
+                        account_circle
+                    </span>
+                    <span class="material-icons-outlined fileIcon">
+                        settings
+                    </span>
                 </div>
             </div>
             <div class="fileList">
                 <div class="fullContent">
-                <div class="explorer">
-                    <span> EXPLORER </span>
-                    <span class="material-icons-outlined">
-                        more_horiz
-                    </span>
-                </div>
-                <div class="explorerNxt">
+                    <div class="explorer">
+                        <span class="exStyle curDefault" title="Explorer(Ctrl+Shift+E)"> EXPLORER </span>
+                        <span class="material-icons-outlined curPointer icAlign">
+                            more_horiz
+                        </span>
+                    </div>
+                <div class="explorerNxt curPointer">
                     <span class="vscode">
                         <span class="material-icons-outlined">
                             expand_more
                         </span>
-                        <h4> VSCODE </h4>
+                        <h4 class="fileHead" title="vsTabModify"> VSCODE </h4>
                     </span>
-                    <span class="explorerIcon action">
-                        <span class="material-icons-outlined">
+                    <span class="explorerIcon">
+                        <span class="material-icons-outlined" title="New File">
                             note_add
                         </span>
-                        <span class="material-icons-outlined">
+                        <span class="material-icons-outlined" title="New Folder">
                             create_new_folder
                         </span>
-                        <span class="material-icons-outlined">
+                        <span class="material-icons-outlined" title="Refresh Explorer">
                             replay
                         </span>
-                        <span class="material-icons-outlined">
+                        <span class="material-icons-outlined" title="Collapse Folder in Explorer">
                             library_add_check
                         </span>
                     </span>
                 </div>
-                <div class="file">
-                    <p class="fileStyle fileBackground"><span class="fileAlign arrowColor"> <> </span> <span>Index.html</span></p>
-                    <p class="fileStyle"><span class="fileAlign ashStyle"> # </span> <span> style.css </span> </p>
-                </div>
+                <ul class="file curPointer">
+                    <li class="fileStyle fileBackground" title="~/Documents/vsTabModify/index.html"><span class="material-icons-outlined arrowColor">code</span>index.html</li>
+                    <li class="fileStyle"><span class="ashStyle" title="~/Documents/vsTabModify/style.css">&nbsp#</span>style.css</li>
+                </ul>
                 </div>
                 <div>
-                    <span class="vscode" style="border-top: 1px solid gray;">
+                    <span class="vscode curPointer" style="border-top: 1px solid gray;">
                         <span class="material-icons-outlined">
                             navigate_next
                         </span>
-                        <h4> OUTLINE </h4>
+                        <h4 title="Outline"> OUTLINE </h4>
                     </span>
                 </div>
             </div>
             <div class="codePage">
                 <div class="tab">
-                    <div class="tabList">
-                    <span class="tabFileStyle tabFont"><span class="fileAlign arrowColor"> <> </span><span>Index.html</span></span>
-                    <span class="tabFont"><span class="fileAlign ashStyle"> # </span> <span> style.css </span> </span> 
-                   </div>
-                   <div class="column">
-                    <span class="material-icons-outlined">
+                    <ul class="tabList curPointer">
+                        <a href="#html"><li class="tabStyle tabBack" title="~/Documents/vsTabModify/index.html"><span class="mainElement"><span class="material-icons-outlined arrowColor">code</span><span>Index.html</span></span><span class="material-icons-outlined partClose">close</span></li></a>
+                        <a href="#css"><li class="tabStyle tabBack"title="~/Documents/vsTabModify/style.css"><span class="mainElement"><span class="ashStyle">#</span><span>Style.css</span></span><span class="material-icons-outlined  partClose hide">close</span></li></a>
+                    </ul>
+                   <div class="column curPointer">
+                    <span class="material-icons-outlined" title="Split Editor Right(ctrl+\)[Alt]Split Editor Down">
                         view_column
                     </span>
-                    <span class="material-icons-outlined">
+                    <span class="material-icons-outlined"title='More Actions'>
                         more_horiz
                     </span>
                    </div>
                 </div>
-                <div class="content">
-                    <p class="contentText"><span class="fileAlign arrowColor"> <> </span> <span>Index.html</span></p>
+                <div class="content curPointer">
+                    <p class="path"><span class="material-icons-outlined arrowColor fileAlign">code</span><span>Index.html</span></p>
+                    <p class="path"><span class="ashStyle fileAlign">#&nbsp;</span><span>style.css</span></p>
                 </div>
+                <div class="codeWrite curText">
+                    <div>
+    <pre class="styleAttribute dynamic" id="html">
+<span class="numberColor">&nbsp;1</span><span class="codeAlign"><span class="tagOC"><</span><span class="tagOC">!</span><span class="elements">DOCTYPE</span> <span class="attribute">html</span><span class="tagOC">></span></span>
+<span class="numberColor">&nbsp;2</span><span class="codeAlign"><span class="tagOC"><</span><span class="elements">html</span>&nbsp;<span class="attribute">lang</span><span class="separator">=</span><span class="value">"en"</span><span class="tagOC">></span></span>
+<span class="numberColor">&nbsp;3</span><span class="codeAlign"><span class="tagOC lineHead"><</span><span class="elements">head</span><span class="tagOC">></span></span>
+<span class="numberColor">&nbsp;4</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">meta</span>&nbsp;<span class="attribute">charset</span><span class="separator">=</span><span class="value">"UTF-8"</span><span class="tagOC">></span></span>
+<span class="numberColor">&nbsp;5</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">meta</span>&nbsp;<span class="attribute">http-equiv</span><span class="separator">=</span><span class="value">"X-UA-Compatible"</span>&nbsp;<span class="attribute">content</span><span class="separator">=</span><span class="value">"IE=edge"</span><span class="tagOC">></span></span>
+<span class="numberColor">&nbsp;6</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">meta</span>&nbsp;<span class="attribute">name</span><span class="separator">=</span><span class="value">"viewport"</span>&nbsp;<span class="attribute">content</span><span class="separator">=</span><span class="value">"width=device-width, initial-scale=1.0"</span><span class="tagOC">></span></span>
+<span class="numberColor">&nbsp;7</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">title</span><span class="tagOC">></span><span class="contentColor">Document</span><span class="tagOC"><</span><span class="elements">title</span><span class="tagOC">></span></span>
+<span class="numberColor">&nbsp;8</span><span class="codeAlign"><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">head</span><span class="tagOC">></span></span>
+<span class="numberColor">&nbsp;9</span><span class="codeAlign"><span class="tagOC lineMain"><</span><span class="elements">body</span><span class="tagOC">></span></span>
+<span class="numberColor">10</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC line"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"container"</span><span class="tagOC">></span></span>
+<span class="numberColor">11</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 1</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">12</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 2</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">13</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 3</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">14</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 4</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">15</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 5</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">16</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 6</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">17</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 7</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">18</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 8</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">19</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 9</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">20</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 10</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">21</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 11</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">22</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 12</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">23</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">/div</span><span class="tagOC">></span></span>
+<span class="numberColor">24</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC lineTwo"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"layout"</span><span class="tagOC">></span></span>
+<span class="numberColor">26</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content1 style"</span><span class="tagOC">></span><span class="contentColor">Lay1</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">div</span><span class="tagOC">></span></span>
+<span class="numberColor">27</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content2 style"</span><span class="tagOC">></span><span class="contentColor">Lay2</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">div</span><span class="tagOC">></span></span>
+<span class="numberColor">28</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content3 style"</span><span class="tagOC">></span><span class="contentColor">Lay3</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">div</span><span class="tagOC">></span></span>
+<span class="numberColor">29</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content4 style"</span><span class="tagOC">></span><span class="contentColor">Lay4</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">div</span><span class="tagOC">></span></span>
+<span class="numberColor">30</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content5 style"</span><span class="tagOC">></span><span class="contentColor">Lay5</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">div</span><span class="tagOC">></span></span>
+<span class="numberColor">31</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content6 style"</span><span class="tagOC">></span><span class="contentColor">Lay6</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">div</span><span class="tagOC">></span></span>
+<span class="numberColor">32</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content7 style"</span><span class="tagOC">></span><span class="contentColor">Lay7</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">div</span><span class="tagOC">></span></span>
+<span class="numberColor">33</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content8 style"</span><span class="tagOC">></span><span class="contentColor">Lay8</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">div</span><span class="tagOC">></span></span>
+<span class="numberColor">34</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">div</span><span class="tagOC">></span></span>
+<span class="numberColor">35</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC line"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxMain"</span><span class="tagOC">></span></span>
+<span class="numberColor">36</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 1</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">37</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 2</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">38</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 3</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">39</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 4</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">40</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 5</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">41</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 6</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">42</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 7</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">43</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 8</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">44</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 9</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">45</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 10</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">46</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 11</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">47</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 12</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+<span class="numberColor">48</span><span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">/div</span><span class="tagOC">></span></span>
+<span class="numberColor">49</span><span class="codeAlign"><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">body</span><span class="tagOC">></span></span>
+<span class="numberColor">50</span><span class="codeAlign"><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">html</span><span class="tagOC">></span></span>
+    </pre>
+    <pre class="styleAttribute dynamic" id="css">
+<span class="numberColor">&nbsp;1</span><span class="codeAlign"><span class="elements styleLineOne">*</span><span class="separator">{</span></span>
+<span class="numberColor">&nbsp;2</span><span class="codeAlignStyle"><span class="attribute">margin</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">0</span><span class="separator">;</span></span>
+<span class="numberColor">&nbsp;3</span><span class="codeAlignStyle"><span class="attribute">padding</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">0</span><span class="separator">;</span></span>
+<span class="numberColor">&nbsp;4</span><span class="codeAlignStyle"><span class="attribute">box-sizing</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">0</span><span class="separator">;</span></span>
+<span class="numberColor">&nbsp;5</span><span class="codeAlign"><span class="separator">}</span></span>
+<span class="numberColor">&nbsp;6</span><span class="codeAlign"><span class="styleTitle styleLineTwo">body</span><span class="separator">{</span></span> 
+<span class="numberColor">&nbsp;7</span><span class="codeAlignStyle"><span class="attribute">width</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">100vw</span><span class="separator">;</span></span>
+<span class="numberColor">&nbsp;8</span><span class="codeAlignStyle"><span class="attribute">height</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">100vh</span><span class="separator">;</span></span>
+<span class="numberColor">&nbsp;9</span><span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">flex</span><span class="separator">;</span></span>
+<span class="numberColor">10</span><span class="codeAlignStyle"><span class="attribute">align-items</span><span class="separator">:</span><span>&nbsp;</span><span class="value">center</span><span class="separator">;</span></span>
+<span class="numberColor">11</span><span class="codeAlignStyle"><span class="attribute">justify-content</span><span class="separator">:</span><span>&nbsp;</span><span class="value">center</span><span class="separator">;</span></span>
+<span class="numberColor">12</span><span class="codeAlignStyle"><span class="attribute">background-color</span><span class="separator">:</span><span>&nbsp;</span><span class="value"><span class="color-box color1"></span>#F56D91</span><span class="separator">;</span></span>
+<span class="numberColor">13</span><span class="codeAlign"><span class="separator">}</span></span>
+<span class="numberColor">14</span><span class="codeAlign"><span class="styleTitle styleLineTwo">.layout</span><span class="separator">{</span></span>
+<span class="numberColor">15</span><span class="codeAlignStyle"><span class="attribute">width</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">70%</span><span class="separator">;</span></span>
+<span class="numberColor">16</span><span class="codeAlignStyle"><span class="attribute">height</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">70%</span><span class="separator">;</span></span>
+<span class="numberColor">17</span><span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">grid</span><span class="separator">;</span></span>
+<span class="numberColor">18</span><span class="codeAlignStyle"><span class="attribute">grid-template-columns</span><span class="separator">:</span><span>&nbsp;</span><span class="styleValueAttribute">repeat</span><span class="styleNoValue">(3,1fr)</span><span class="separator">;</span></span>
+<span class="numberColor">19</span><span class="codeAlignStyle"><span class="attribute">grid-template-rows</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">1fr 2fr 2fr 1fr</span><span class="separator">;</span></span>
+<span class="numberColor">20</span><span class="codeAlignStyle"><span class="attribute">padding</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span class="separator">;</span></span>
+<span class="numberColor">21</span><span class="codeAlign"><span class="separator">}</span></span>
+<span class="numberColor">22</span><span class="codeAlign"><span class="styleTitle styleLineThree">.style</span><span class="separator">{</span></span> 
+<span class="numberColor">23</span><span class="codeAlignStyle"><span class="attribute">border-radius</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">5px</span><span class="separator">;</span></span>
+<span class="numberColor">24</span><span class="codeAlignStyle"><span class="attribute">border</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span>&nbsp;</span><span class="value">solid <span class="color-box color2"></span>white</span><span class="separator">;</span></span>
+<span class="numberColor">25</span><span class="codeAlign"><span class="separator">}</span></span>
+<span class="numberColor">26</span><span class="codeAlign"><span class="styleTitle styleLineFour">.content</span><span class="separator">{</span></span> 
+<span class="numberColor">27</span><span class="codeAlignStyle"><span class="attribute">background-color</span><span class="separator">:</span><span>&nbsp;</span><span class="value"><span class="color-box color3"></span>#F190B7</span><span class="separator">;</span></span>
+<span class="numberColor">28</span><span class="codeAlign"><span class="separator">}</span></span>
+<span class="numberColor">29</span><span class="codeAlign"><span class="styleTitle styleLineFive">.content1</span><span class="separator">{</span></span>
+<span class="numberColor">30</span><span class="codeAlignStyle"><span class="attribute">grid-column</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">1/-1</span><span class="separator">;</span></span>
+<span class="numberColor">31</span><span class="codeAlignStyle"><span class="attribute">grid-rows</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">1/2</span><span class="separator">;</span></span>
+<span class="numberColor">32</span><span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">grid</span><span class="separator">;</span></span>
+<span class="numberColor">33</span><span class="codeAlignStyle"><span class="attribute">grid-template-columns</span><span class="separator">:</span><span>&nbsp;</span><span class="styleValueAttribute">repeat</span><span class="styleNoValue">(12,1fr)</span><span class="separator">;</span></span>
+<span class="numberColor">34</span><span class="codeAlignStyle"><span class="attribute">gap</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span class="separator">;</span></span>
+<span class="numberColor">35</span><span class="codeAlign"><span class="separator">}</span></span>
+<span class="numberColor">36</span><span class="codeAlign"><span class="styleTitle styleLineFive">.content2</span><span class="separator">{</span></span>
+<span class="numberColor">37</span><span class="codeAlignStyle"><span class="attribute">grid-column</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">1/-1</span><span class="separator">;</span></span>
+<span class="numberColor">38</span><span class="codeAlignStyle"><span class="attribute">grid-rows</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">2/3</span><span class="separator">;</span></span>
+<span class="numberColor">39</span><span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">grid</span><span class="separator">;</span></span>
+<span class="numberColor">40</span><span class="codeAlignStyle"><span class="attribute">grid-template-columns</span><span class="separator">:</span><span>&nbsp;</span><span class="styleValueAttribute">repeat</span><span class="styleNoValue">(12,1fr)</span><span class="separator">;</span></span>
+<span class="numberColor">41</span><span class="codeAlignStyle"><span class="attribute">gap</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span class="separator">;</span></span>
+<span class="numberColor">42</span><span class="codeAlign"><span class="separator">}</span></span>
+<span class="numberColor">43</span><span class="codeAlign"><span class="styleTitle styleLineFive">.content3</span><span class="separator">{</span></span>
+<span class="numberColor">44</span><span class="codeAlignStyle"><span class="attribute">grid-column</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">1/2</span><span class="separator">;</span></span>
+<span class="numberColor">45</span><span class="codeAlignStyle"><span class="attribute">grid-rows</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">3/4</span><span class="separator">;</span></span>
+<span class="numberColor">46</span><span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">grid</span><span class="separator">;</span></span>
+<span class="numberColor">47</span><span class="codeAlignStyle"><span class="attribute">grid-template-columns</span><span class="separator">:</span><span>&nbsp;</span><span class="styleValueAttribute">repeat</span><span class="styleNoValue">(4,1fr)</span><span class="separator">;</span></span>
+<span class="numberColor">48</span><span class="codeAlignStyle"><span class="attribute">gap</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span class="separator">;</span></span>
+<span class="numberColor">49</span><span class="codeAlign"><span class="separator">}</span></span>
+<span class="numberColor">50</span><span class="codeAlign"><span class="styleTitle styleLineFive">.content4</span><span class="separator">{</span></span>
+<span class="numberColor">51</span><span class="codeAlignStyle"><span class="attribute">grid-column</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">2/3</span><span class="separator">;</span></span>
+<span class="numberColor">52</span><span class="codeAlignStyle"><span class="attribute">grid-rows</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">3/4</span><span class="separator">;</span></span>
+<span class="numberColor">53</span><span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">grid</span><span class="separator">;</span></span>
+<span class="numberColor">54</span><span class="codeAlignStyle"><span class="attribute">grid-template-columns</span><span class="separator">:</span><span>&nbsp;</span><span class="styleValueAttribute">repeat</span><span class="styleNoValue">(4,1fr)</span><span class="separator">;</span></span>
+<span class="numberColor">55</span><span class="codeAlignStyle"><span class="attribute">gap</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span class="separator">;</span></span>
+<span class="numberColor">56</span><span class="codeAlign"><span class="separator">}</span></span>
+<span class="numberColor">57</span><span class="codeAlign"><span class="styleTitle styleLineFive">.content5</span><span class="separator">{</span></span>
+<span class="numberColor">58</span><span class="codeAlignStyle"><span class="attribute">grid-column</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">3/4</span><span class="separator">;</span></span>
+<span class="numberColor">59</span><span class="codeAlignStyle"><span class="attribute">grid-rows</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">3/4</span><span class="separator">;</span></span>
+<span class="numberColor">60</span><span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">grid</span><span class="separator">;</span></span>
+<span class="numberColor">61</span><span class="codeAlignStyle"><span class="attribute">grid-template-columns</span><span class="separator">:</span><span>&nbsp;</span><span class="styleValueAttribute">repeat</span><span class="styleNoValue">(4,1fr)</span><span class="separator">;</span></span>
+<span class="numberColor">62</span><span class="codeAlignStyle"><span class="attribute">gap</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span class="separator">;</span></span>
+<span class="numberColor">63</span><span class="codeAlign"><span class="separator">}</span></span>
+<span class="numberColor">64</span><span class="codeAlign"><span class="styleTitle styleLineFive">.content6</span><span class="separator">{</span></span>
+<span class="numberColor">65</span><span class="codeAlignStyle"><span class="attribute">grid-column</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">1/2</span><span class="separator">;</span></span>
+<span class="numberColor">66</span><span class="codeAlignStyle"><span class="attribute">grid-rows</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">4/5</span><span class="separator">;</span></span>
+<span class="numberColor">67</span><span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">grid</span><span class="separator">;</span></span>
+<span class="numberColor">68</span><span class="codeAlignStyle"><span class="attribute">grid-template-columns</span><span class="separator">:</span><span>&nbsp;</span><span class="styleValueAttribute">repeat</span><span class="styleNoValue">(4,1fr)</span><span class="separator">;</span></span>
+<span class="numberColor">69</span><span class="codeAlignStyle"><span class="attribute">gap</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span class="separator">;</span></span>
+<span class="numberColor">70</span><span class="codeAlign"><span class="separator">}</span></span>
+<span class="numberColor">71</span><span class="codeAlign"><span class="styleTitle styleLineFive">.content7</span><span class="separator">{</span></span>
+<span class="numberColor">72</span><span class="codeAlignStyle"><span class="attribute">grid-column</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">2/3</span><span class="separator">;</span></span>
+<span class="numberColor">73</span><span class="codeAlignStyle"><span class="attribute">grid-rows</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">4/5</span><span class="separator">;</span></span>
+<span class="numberColor">74</span><span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">grid</span><span class="separator">;</span></span>
+<span class="numberColor">75</span><span class="codeAlignStyle"><span class="attribute">grid-template-columns</span><span class="separator">:</span><span>&nbsp;</span><span class="styleValueAttribute">repeat</span><span class="styleNoValue">(4,1fr)</span><span class="separator">;</span></span>
+<span class="numberColor">76</span><span class="codeAlignStyle"><span class="attribute">gap</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span class="separator">;</span></span>
+<span class="numberColor">77</span><span class="codeAlign"><span class="separator">}</span></span>
+<span class="numberColor">78</span><span class="codeAlign"><span class="styleTitle styleLineFive">.content8</span><span class="separator">{</span></span>
+<span class="numberColor">79</span><span class="codeAlignStyle"><span class="attribute">grid-column</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">3/4</span><span class="separator">;</span></span>
+<span class="numberColor">80</span><span class="codeAlignStyle"><span class="attribute">grid-rows</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">4/5</span><span class="separator">;</span></span>
+<span class="numberColor">81</span><span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">grid</span><span class="separator">;</span></span>
+<span class="numberColor">82</span><span class="codeAlignStyle"><span class="attribute">grid-template-columns</span><span class="separator">:</span><span>&nbsp;</span><span class="styleValueAttribute">repeat</span><span class="styleNoValue">(4,1fr)</span><span class="separator">;</span></span>
+<span class="numberColor">83</span><span class="codeAlignStyle"><span class="attribute">gap</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span class="separator">;</span></span>
+<span class="numberColor">84</span><span class="codeAlign"><span class="separator">}</span></span>   
+    </pre>
+                          </div>                      
+    <div class="activeOne1"><div class="activeOne curDefault">
+        <pre class="styleAttribute">
+            <span class="codeAlign"><span class="tagOC"><</span><span class="tagOC">!</span><span class="elements">DOCTYPE</span> <span class="attribute">html</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span class="tagOC"><</span><span class="elements">html</span>&nbsp;<span class="attribute">lang</span><span class="separator">=</span><span class="value">"en"</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span class="tagOC"><</span><span class="elements">head</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">meta</span>&nbsp;<span class="attribute">charset</span><span class="separator">=</span><span class="value">"UTF-8"</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">meta</span>&nbsp;<span class="attribute">http-equiv</span><span class="separator">=</span><span class="value">"X-UA-Compatible"</span>&nbsp;<span class="attribute">content</span><span class="separator">=</span><span class="value">"IE=edge"</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">meta</span>&nbsp;<span class="attribute">name</span><span class="separator">=</span><span class="value">"viewport"</span>&nbsp;<span class="attribute">content</span><span class="separator">=</span><span class="value">"width=device-width, initial-scale=1.0"</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">title</span><span class="tagOC">></span><span class="contentColor">Document</span><span class="tagOC"><</span><span class="elements">title</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">head</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span class="tagOC"><</span><span class="elements">body</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"container"</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 1</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 2</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 3</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 4</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 5</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 6</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 7</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 8</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 9</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 10</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 11</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content"</span><span class="tagOC">></span><span class="contentColor">Area 12</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">/div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"layout"</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content1 style"</span><span class="tagOC">></span><span class="contentColor">Lay1</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content2 style"</span><span class="tagOC">></span><span class="contentColor">Lay2</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content3 style"</span><span class="tagOC">></span><span class="contentColor">Lay3</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content4 style"</span><span class="tagOC">></span><span class="contentColor">Lay4</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content5 style"</span><span class="tagOC">></span><span class="contentColor">Lay5</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content6 style"</span><span class="tagOC">></span><span class="contentColor">Lay6</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content7 style"</span><span class="tagOC">></span><span class="contentColor">Lay7</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"content8 style"</span><span class="tagOC">></span><span class="contentColor">Lay8</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxMain"</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 1</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 2</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 3</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 4</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 5</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 6</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 7</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 8</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 9</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 10</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 11</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">div</span>&nbsp;<span class="attribute">class</span><span class="separator">=</span><span class="value">"boxModel"</span><span class="tagOC">></span><span class="contentColor">box 12</span><span class="tagOC"><</span><span class="tagOC">/</span><span class="attribute">div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tagOC"><</span><span class="elements">/div</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">body</span><span class="tagOC">></span></span>
+            <span class="codeAlign"><span class="tagOC"><</span><span class="tagOC">/</span><span class="elements">html</span><span class="tagOC">></span></span>
+                </pre>
+                <pre class="styleAttribute dynamic">
+            <span class="codeAlign"><span class="elements">*</span><span class="separator">{</span></span>
+            <span class="codeAlignStyle"><span class="attribute">margin</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">0</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">padding</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">0</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">box-sizing</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">0</span><span class="separator">;</span></span>
+            <span class="codeAlign"><span class="separator">}</span></span>
+            <span class="codeAlign"><span class="styleTitle">body</span><span class="separator">{</span></span> 
+            <span class="codeAlignStyle"><span class="attribute">width</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">100vw</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">height</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">100vh</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">flex</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">align-items</span><span class="separator">:</span><span>&nbsp;</span><span class="value">center</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">justify-content</span><span class="separator">:</span><span>&nbsp;</span><span class="value">center</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">background-color</span><span class="separator">:</span><span>&nbsp;</span><span class="value"><span class="color-box color1"></span>#F56D91</span><span class="separator">;</span></span>
+            <span class="codeAlign"><span class="separator">}</span></span>
+            <span class="codeAlign"><span class="styleTitle">.layout</span><span class="separator">{</span></span>
+            <span class="codeAlignStyle"><span class="attribute">width</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">70%</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">height</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">70%</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">grid</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-template-columns</span><span class="separator">:</span><span>&nbsp;</span><span class="styleValueAttribute">repeat</span><span class="styleNoValue">(3,1fr)</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-template-rows</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">1fr 2fr 2fr 1fr</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">padding</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span class="separator">;</span></span>
+            <span class="codeAlign"><span class="separator">}</span></span>
+            <span class="codeAlign"><span class="styleTitle">.style</span><span class="separator">{</span></span> 
+            <span class="codeAlignStyle"><span class="attribute">border-radius</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">5px</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">border</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span>&nbsp;</span><span class="value">solid <span class="color-box color2"></span>white</span><span class="separator">;</span></span>
+            <span class="codeAlign"><span class="separator">}</span></span>
+            <span class="codeAlign"><span class="styleTitle">.content</span><span class="separator">{</span></span> 
+            <span class="codeAlignStyle"><span class="attribute">background-color</span><span class="separator">:</span><span>&nbsp;</span><span class="value"><span class="color-box color3"></span>#F190B7</span><span class="separator">;</span></span>
+            <span class="codeAlign"><span class="separator">}</span></span>
+            <span class="codeAlign"><span class="styleTitle">.content1</span><span class="separator">{</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-column</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">1/-1</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-rows</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">1/2</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">grid</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-template-columns</span><span class="separator">:</span><span>&nbsp;</span><span class="styleValueAttribute">repeat</span><span class="styleNoValue">(12,1fr)</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">gap</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span class="separator">;</span></span>
+            <span class="codeAlign"><span class="separator">}</span></span>
+            <span class="codeAlign"><span class="styleTitle">.content2</span><span class="separator">{</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-column</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">1/-1</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-rows</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">2/3</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">grid</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-template-columns</span><span class="separator">:</span><span>&nbsp;</span><span class="styleValueAttribute">repeat</span><span class="styleNoValue">(12,1fr)</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">gap</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span class="separator">;</span></span>
+            <span class="codeAlign"><span class="separator">}</span></span>
+            <span class="codeAlign"><span class="styleTitle">.content3</span><span class="separator">{</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-column</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">1/2</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-rows</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">3/4</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">grid</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-template-columns</span><span class="separator">:</span><span>&nbsp;</span><span class="styleValueAttribute">repeat</span><span class="styleNoValue">(4,1fr)</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">gap</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span class="separator">;</span></span>
+            <span class="codeAlign"><span class="separator">}</span></span>
+            <span class="codeAlign"><span class="styleTitle">.content4</span><span class="separator">{</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-column</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">2/3</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-rows</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">3/4</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">grid</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-template-columns</span><span class="separator">:</span><span>&nbsp;</span><span class="styleValueAttribute">repeat</span><span class="styleNoValue">(4,1fr)</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">gap</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span class="separator">;</span></span>
+            <span class="codeAlign"><span class="separator">}</span></span>
+            <span class="codeAlign"><span class="styleTitle">.content5</span><span class="separator">{</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-column</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">3/4</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-rows</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">3/4</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">grid</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-template-columns</span><span class="separator">:</span><span>&nbsp;</span><span class="styleValueAttribute">repeat</span><span class="styleNoValue">(4,1fr)</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">gap</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span class="separator">;</span></span>
+            <span class="codeAlign"><span class="separator">}</span></span>
+            <span class="codeAlign"><span class="styleTitle">.content6</span><span class="separator">{</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-column</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">1/2</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-rows</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">4/5</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">grid</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-template-columns</span><span class="separator">:</span><span>&nbsp;</span><span class="styleValueAttribute">repeat</span><span class="styleNoValue">(4,1fr)</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">gap</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span class="separator">;</span></span>
+            <span class="codeAlign"><span class="separator">}</span></span>
+            <span class="codeAlign"><span class="styleTitle">.content7</span><span class="separator">{</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-column</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">2/3</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-rows</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">4/5</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">grid</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-template-columns</span><span class="separator">:</span><span>&nbsp;</span><span class="styleValueAttribute">repeat</span><span class="styleNoValue">(4,1fr)</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">gap</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span class="separator">;</span></span>
+            <span class="codeAlign"><span class="separator">}</span></span>
+            <span class="codeAlign"><span class="styleTitle">.content8</span><span class="separator">{</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-column</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">3/4</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-rows</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">4/5</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">display</span><span class="separator">:</span><span>&nbsp;</span><span class="value">grid</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">grid-template-columns</span><span class="separator">:</span><span>&nbsp;</span><span class="styleValueAttribute">repeat</span><span class="styleNoValue">(4,1fr)</span><span class="separator">;</span></span>
+            <span class="codeAlignStyle"><span class="attribute">gap</span><span class="separator">:</span><span>&nbsp;</span><span class="styleNoValue">10px</span><span class="separator">;</span></span>
+            <span class="codeAlign"><span class="codeAlign"><span class="separator">}</span></span>
+    </div></div>
+            </div>
             </div>
         </div>
         <div class="footer">
