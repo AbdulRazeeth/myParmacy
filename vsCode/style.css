@@ -204,8 +204,9 @@ body{
     gap: 15px;
     padding: 3px 20px;
     align-items: center;
+    color: var(--tabHoverColor);
 }
-.fileBackground{
+.fileStyle:hover{
     background-color: var(--menuBackground);
 }
 .fileAlign{
@@ -359,9 +360,9 @@ body{
 }
 .footerEnd{
     display: flex;
-    gap: 30px;
+    gap: 20px;
     align-items: center;
-    padding-right: 30px;
+    padding-right: 20px;
     list-style-type: none;
 }
 .listAlign{
@@ -599,4 +600,10 @@ body{
 }
 a{
     text-decoration: none;
+}
+.footerElements:hover{
+    background-color: rgba(255, 255, 255, 0.12);
+    width: auto;
+    height: auto;
+    cursor: pointer;
 }
