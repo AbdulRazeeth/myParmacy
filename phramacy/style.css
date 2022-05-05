@@ -1,0 +1,80 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+}
+html{
+    font-family: sans-serif;
+}
+.container{
+    padding: 10px;
+}
+.path-flex{
+    display: flex;
+}
+.path-align{
+    align-items: center;
+}
+.path-justify{
+    justify-content: space-between;
+}
+.path-gap{
+    gap: 10px;
+}
+.path-direction{
+    flex-direction: column;
+}
+.pathFinder{
+    padding: 20px;
+    width: 500px;
+    height: 600px;
+    border: 1px solid black;
+}
+.path-way{
+    width: 300px;
+    height: 50px;
+    border: 1px solid black;
+    padding: 5px;
+}
+.input-box{
+    padding: 10px 10px;
+    outline: none;
+    font-size: 16px;
+}
+.search-btn{
+    /* width: 100px; */
+    /* height: 30px; */
+    background-color: green;
+    border: none;
+    border-radius: 2px;
+    font-size: 15px;
+    color: white;
+    padding: 10px 20px;
+}
+.detail-style{
+    width: 300px;
+    height: 120px;
+    border: 1px solid black;
+    padding: 10px;
+}
+.value-style{
+    color: red;
+}
+.biller{
+    width: 500px;
+    height: 300px;
+    padding: 10px;
+    border: 1px solid black;
+}
+.hide{
+    display: none;
+}
+.total-box{
+    width: 100px;
+    height: 30px;
+    padding: 5px 10px;
+    border: 1px solid black;
+}
