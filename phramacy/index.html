@@ -9,39 +9,179 @@
 </head>
 <body>
     <section class="container path-flex path-gap">
-    <div class="pathFinder path-flex path-align path-justify path-direction">
-        <h1> Path Finder </h1>
-        <span class="searchFace path-flex path-direction path-gap path-align">
-            <input type="text" id="inputField" class="input-box" placeholder="Medicine Name">
-            <button onclick="search(racks)" class="search-btn"> Search </button>
-        </span>
-        <span class="pathFace path-flex path-direction path-gap">
-            <h3>Path of the medicine</h6>
-            <p id="pathWay" class="path-way"></p>
-        </span>
-        <span class="product-detail-face path-flex path-direction path-gap">
-            <h3> Product Details </h3>
-            <span class="detail-style path-flex path-direction path-gap">
-                <h4 class="med-name"> Medicine name: <span id="med-name" class="value-style"></span></h4>
-                <h4 class="total-cap"> Total capacity: <span id="total-cap" class="value-style"></span></h4>
-                <h4 class="avai-quantity"> Available Quantity: <span id="avai-quan" class="value-style"></span></h4>
-                <h4 class="avai-quantity"> price per unit: <span id="price-unit" class="value-style"></span></h4>
-            </span>
-        </span>
-        <button class="search-btn" onclick="display()"> Click here to Bill the Medicine </button>
-    </div>
-    <div class="biller hide path-flex path-direction path-align path-justify" id="biller">
-        <h1> Billing </h1>
-        <span class="path-flex path-direction path-gap">
-            <h4> Quantity </h4>
-            <input type="number" name="" id="quantityField" class="input-box">
-        </span>
-        <button class="search-btn" onclick="billing()"> Buy </button>
-        <span class="path-flex path-direction path-gap">
-            <h3>Total Price</h3>
-            <p class="total-box" id="price"></p>
-        </span>
-    </div>
+        <div class="path-flex path-gap path-direction">
+            <div class="pathFinder path-flex path-align path-justify path-direction">
+                <h1> Path Finder </h1>
+                <span class="searchFace path-flex path-direction path-gap path-align">
+                    <input type="text" id="inputField" class="input-box" placeholder="Medicine Name">
+                    <button onclick="search(racks)" class="search-btn"> Search </button>
+                </span>
+                <span class="pathFace path-flex path-direction path-gap">
+                    <h3>Path of the medicine</h6>
+                    <p id="pathWay" class="path-way"></p>
+                </span>
+                <span class="product-detail-face path-flex path-direction path-gap">
+                    <h3> Product Details </h3>
+                    <span class="detail-style path-flex path-direction path-gap">
+                        <h4 class="med-name"> Medicine name: <span id="med-name" class="value-style"></span></h4>
+                        <h4 class="total-cap"> Total capacity: <span id="total-cap" class="value-style"></span></h4>
+                        <h4 class="avai-quantity"> Available Quantity: <span id="avai-quan" class="value-style"></span></h4>
+                        <h4 class="avai-quantity"> price per unit: <span id="price-unit" class="value-style"></span></h4>
+                    </span>
+                </span>
+                <button class="search-btn" onclick="display()"> Click here to Bill the Medicine </button>
+            </div>
+            <div class="biller hide path-flex path-direction path-align path-justify" id="biller">
+                <h1> Billing </h1>
+                <span class="path-flex path-direction path-gap">
+                    <h4> Quantity </h4>
+                    <input type="number" name="" id="quantityField" class="input-box">
+                </span>
+                <button class="search-btn" onclick="billing()"> Buy </button>
+                <span class="path-flex path-direction path-gap">
+                    <h3>Total Price</h3>
+                    <p class="total-box" id="price"></p>
+                </span>
+            </div>
+        </div>
+        <div class="racksView">
+            <div class="rack1 rack-common-style">
+                <div class="shelf1 shelf-common-style shelf-layout">
+                    <div class="container-common-style text-style">med001</div>
+                    <div class="container-common-style text-style">med002</div>
+                    <div class="text-style">med003</div>
+                </div>
+                <div class="shelf2 shelf-common-style shelf-layout">
+                    <div class="container-common-style text-style">med004</div>
+                    <div class="container-common-style text-style">med005</div>
+                    <div class="text-style">med006</div>
+                </div>
+                <div class="shelf3 shelf-layout">
+                    <div class="container-common-style text-style">med007</div>
+                    <div class="container-common-style text-style">med008</div>
+                    <div class="text-style">med009</div>
+                </div>
+            </div>
+            <div class="rack2 rack-common-style">
+                <div class="shelf1 shelf-common-style shelf-layout">
+                    <div class="container-common-style text-style">med010</div>
+                    <div class="container-common-style text-style">med011</div>
+                    <div class="text-style">med012</div>
+                </div>
+                <div class="shelf2 shelf-common-style shelf-layout">
+                    <div class="container-common-style text-style">med013</div>
+                    <div class="container-common-style text-style">med014</div>
+                    <div class="text-style">med015</div>
+                </div>
+                <div class="shelf3 shelf-layout">
+                    <div class="container-common-style text-style">med016</div>
+                    <div class="container-common-style text-style">med017</div>
+                    <div class="text-style">med018</div>
+                </div>
+            </div>
+            <div class="rack3 rack-common-style">
+                <div class="shelf1 shelf-common-style shelf-layout">
+                    <div class="container-common-style text-style">med019</div>
+                    <div class="container-common-style text-style">med020</div>
+                    <div class="text-style">med021</div>
+                </div>
+                <div class="shelf2 shelf-common-style shelf-layout">
+                    <div class="container-common-style text-style">med022</div>
+                    <div class="container-common-style text-style">med023</div>
+                    <div class="text-style">med024</div>
+                </div>
+                <div class="shelf3 shelf-layout">
+                    <div class="container-common-style text-style">med025</div>
+                    <div class="container-common-style text-style">med026</div>
+                    <div class="text-style">med027</div>
+                </div>
+            </div>
+            <div class="rack4 rack-common-style">
+                <div class="shelf1 shelf-common-style shelf-layout">
+                    <div class="container-common-style text-style">med028</div>
+                    <div class="container-common-style text-style">med029</div>
+                    <div class="text-style">med030</div>
+                </div>
+                <div class="shelf2 shelf-common-style shelf-layout">
+                    <div class="container-common-style text-style">med031</div>
+                    <div class="container-common-style text-style">med032</div>
+                    <div class="text-style">med033</div>
+                </div>
+                <div class="shelf3 shelf-layout">
+                    <div class="container-common-style text-style">med034</div>
+                    <div class="container-common-style text-style">med035</div>
+                    <div class="text-style">med036</div>
+                </div>
+            </div>
+            <div class="rack5 rack-common-style">
+                <div class="shelf1 shelf-common-style shelf-layout">
+                    <div class="container-common-style text-style">med037</div>
+                    <div class="container-common-style text-style">med038</div>
+                    <div class="text-style">med039</div>
+                </div>
+                <div class="shelf2 shelf-common-style shelf-layout">
+                    <div class="container-common-style text-style">med040</div>
+                    <div class="container-common-style text-style">med041</div>
+                    <div class="text-style">med042</div>
+                </div>
+                <div class="shelf3 shelf-layout">
+                    <div class="container-common-style text-style">med043</div>
+                    <div class="container-common-style text-style">med044</div>
+                    <div class="text-style">med045</div>
+                </div>
+            </div>
+            <div class="rack6 rack-common-style">
+                <div class="shelf1 shelf-common-style shelf-layout">
+                    <div class="container-common-style text-style">med046</div>
+                    <div class="container-common-style text-style">med047</div>
+                    <div class="text-style">med048</div>
+                </div>
+                <div class="shelf2 shelf-common-style shelf-layout">
+                    <div class="container-common-style text-style">med049</div>
+                    <div class="container-common-style text-style">med050</div>
+                    <div class="text-style">med050</div>
+                </div>
+                <div class="shelf3 shelf-layout">
+                    <div class="container-common-style text-style">med051</div>
+                    <div class="container-common-style text-style">med052</div>
+                    <div class="text-style">med053</div>
+                </div>
+            </div>
+            <div class="rack7 rack-common-style">
+                <div class="shelf1 shelf-common-style shelf-layout">
+                    <div class="container-common-style text-style">med054</div>
+                    <div class="container-common-style text-style">med055</div>
+                    <div class="text-style">med056</div>
+                </div>
+                <div class="shelf2 shelf-common-style shelf-layout">
+                    <div class="container-common-style text-style">med057</div>
+                    <div class="container-common-style text-style">med058</div>
+                    <div class="text-style">med059</div>
+                </div>
+                <div class="shelf3 shelf-layout">
+                    <div class="container-common-style text-style">med060</div>
+                    <div class="container-common-style text-style">med061</div>
+                    <div class="text-style">med062</div>
+                </div>
+            </div>
+            <div class="rack8 rack-common-style">
+                <div class="shelf1 shelf-common-style shelf-layout">
+                    <div class="container-common-style text-style">med063</div>
+                    <div class="container-common-style text-style">med064</div>
+                    <div class="text-style">med065</div>
+                </div>
+                <div class="shelf2 shelf-common-style shelf-layout">
+                    <div class="container-common-style text-style">med066</div>
+                    <div class="container-common-style text-style">med067</div>
+                    <div class="text-style">med068</div>
+                </div>
+                <div class="shelf3 shelf-layout">
+                    <div class="container-common-style text-style">med069</div>
+                    <div class="container-common-style text-style">med070</div>
+                    <div class="text-style">med71</div>
+                </div>
+            </div>
+        </div>
     </section>
     <script src="./script.js"></script>
 </body>

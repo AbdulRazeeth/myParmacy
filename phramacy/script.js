@@ -530,72 +530,6 @@ let billingQuantity
             },
         ]
     ],
-    //rack-9 container
-    [
-        //Shelf-1 Container
-        [
-            {
-                medicineName:'med073',
-                totalCapacity:100,
-                currentQuantity:100,
-                pricePerUnit:13,
-            },
-            {
-                medicineName:'med074',
-                totalCapacity:100,
-                currentQuantity:100,
-                pricePerUnit:17,
-            },
-            {
-                medicineName:'med075',
-                totalCapacity:100,
-                currentQuantity:100,
-                pricePerUnit:2,
-            },
-        ],
-        //shelf-2 container
-        [
-            {
-                medicineName:'med076',
-                totalCapacity:100,
-                currentQuantity:100,
-                pricePerUnit:9,
-            },
-            {
-                medicineName:'med077',
-                totalCapacity:100,
-                currentQuantity:100,
-                pricePerUnit:3,
-            },
-            {
-                medicineName:'med078',
-                totalCapacity:100,
-                currentQuantity:100,
-                pricePerUnit:1,
-            },
-        ],
-        //shelf-3 container
-        [
-            {
-                medicineName:'med079',
-                totalCapacity:100,
-                currentQuantity:100,
-                pricePerUnit:6,
-            },
-            {
-                medicineName:'med080',
-                totalCapacity:100,
-                currentQuantity:100,
-                pricePerUnit:5,
-            },
-            {
-                medicineName:'med081',
-                totalCapacity:100,
-                currentQuantity:100,
-                pricePerUnit:8,
-            },
-        ]
-    ],
 ]
 let selectedMedicine 
 let quantityValue
@@ -630,6 +564,7 @@ function billing(){
     console.log(quantityValue)
     let availability = selectedMedicine.currentQuantity - quantityValue
     selectedMedicine.currentQuantity = availability
+    console.log(selectedMedicine )
     document.getElementById('avai-quan').innerHTML= selectedMedicine.currentQuantity
     let totalPrice =document.getElementById('price')
     totalPrice.innerHTML = selectedMedicine.pricePerUnit*quantityValue
