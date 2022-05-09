@@ -531,27 +531,46 @@ let billingQuantity
         ]
     ],
 ]
+let tablet
 let selectedMedicine 
 let quantityValue
+let searchValue
+let rack
+let shelf
+let tabletCon
 function search(value){
-    let search = document.getElementById('inputField').value
+    searchValue = document.getElementById('inputField').value
     let rackIndex = value.length
     for(let i=0; i<rackIndex; i++){
         let individualRack = value[i]
         for(let j=0; j<individualRack.length; j++){
             let individualshelf = individualRack[j]
-            for(let k=0; k<individualshelf.length; k++){
-                if(search === individualshelf[k].medicineName){
+            for(let k=0; k<individualshelf.length; k++){ 
+                if(searchValue === individualshelf[k].medicineName){
                     selectedMedicine = individualshelf[k]
                     document.getElementById('pathWay').innerHTML=`Rack-number-${i+1},shelf-number-${j+1},container-${k+1}`
+                    rack=document.querySelector('#container').children[i]
+                    shelf =rack.children[j]
+                    tabletCon = shelf.children[k]
                     selectedMedicine = individualshelf[k]
                     document.getElementById('med-name').innerHTML = selectedMedicine.medicineName
                     document.getElementById('total-cap').innerHTML= selectedMedicine.totalCapacity
                     document.getElementById('avai-quan').innerHTML= selectedMedicine.currentQuantity
                     document.getElementById('price-unit').innerHTML=selectedMedicine.pricePerUnit
                     console.log(individualshelf[k])
+                    rackHighlighter()
                 }
             }
+        }
+    }
+}
+function rackHighlighter(Racks){
+    tabletCon.classList.add('highlightColor')
+    for(let a=0; a<racks.length; a++){
+        if(rack === document.querySelector('#container').children[a]){
+            document.querySelector('#container').children[a].style.display ='grid'
+        }else{
+            document.querySelector('#container').children[a].style.display ='none'
         }
     }
 }
@@ -569,3 +588,27 @@ function billing(){
     let totalPrice =document.getElementById('price')
     totalPrice.innerHTML = selectedMedicine.pricePerUnit*quantityValue
 }
+function rackGenerator(value){
+    for(let x=0; x<value.length; x++){
+        let rack = document.createElement('div')
+        rack.id = 'rack'+(x+1)
+        rack.className='rack-common-style rack'+(x+1)
+        let shelfLength = value[x]
+        for(let y=0; y<shelfLength.length; y++){
+            let shelf = document.createElement('div')
+            shelf.id = x+'shelf'+(y+1)
+            shelf.className='shelf-layout shelf-common-style shelf-style shelf'+(y+1)
+            let containerLength = shelfLength[y]
+            for(let z=0; z<containerLength.length; z++){
+                let tablet = document.createElement('div')
+                tablet.className = 'container-common-style text-style'
+                tablet.id =y+ 'tablet'+(z+1)
+                tablet.innerHTML = `${value[x][y][z].medicineName}`
+                shelf.appendChild(tablet)
+            }
+            rack.appendChild(shelf)
+        }
+        document.getElementById('container').appendChild(rack)
+    }
+}
+rackGenerator(racks)

@@ -144,3 +144,6 @@ html{
     align-items: center;
     justify-content: center;
 }
+.highlightColor{
+    background-color: red;
+}
