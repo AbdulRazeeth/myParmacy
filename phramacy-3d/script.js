@@ -1,7 +1,5 @@
 'use strict'
-//total racks container
-let billingQuantity
- const racks=[
+const racks=[
     //Racks-1 container
     [
         //Shelf-1 Container
@@ -531,102 +529,25 @@ let billingQuantity
         ]
     ],
 ]
-let active
-let tablet
-let selectedMedicine 
-let quantityValue
-let searchValue
-let rack
-let shelf
-let tabletCon
-let medicineName =  document.getElementById('med-name')
-let totalCapacity = document.getElementById('total-cap')
-let availableQuantity = document.getElementById('avai-quan')
-let pricePerUnit = document.getElementById('price-unit')
+let selectOne
+let unSelected
+let compareValue
+let searchValue = 'med021'
+let viewSelector = document.querySelector('#content')
 function search(value){
-    searchValue = document.getElementById('inputField').value
-    let rackIndex = value.length
-    for(let i=0; i<rackIndex; i++){
-        let individualRack = value[i]
-        for(let j=0; j<individualRack.length; j++){
-            let individualshelf = individualRack[j]
-            for(let k=0; k<individualshelf.length; k++){ 
-                if(searchValue === individualshelf[k].medicineName){
-                    selectedMedicine = individualshelf[k]
-                    document.getElementById('pathWay').innerHTML=`Rack-number-${i+1},shelf-number-${j+1},container-${k+1}`
-                    rack=document.querySelector('#container').children[i]
-                    shelf =rack.children[j]
-                    if(active){
-                        tabletCon.classList.remove('highlightColor')
-                    }
-                    tabletCon = shelf.children[k]
-                    active =tabletCon
-                    selectedMedicine = individualshelf[k]
-                    medicineName.innerHTML = selectedMedicine.medicineName
-                    totalCapacity.innerHTML= selectedMedicine.totalCapacity
-                    availableQuantity.innerHTML= selectedMedicine.currentQuantity
-                    pricePerUnit.innerHTML=selectedMedicine.pricePerUnit
-                    rackHighlighter()
+    for(let i=0; i<value.length; i++){
+        for(let j=0; j<value[i].length; j++){
+            for(let k=0; k<value[i][j].length;k++){
+                if(searchValue === value[i][j][k].medicineName){
+                    console.log(value[i][j][k])
+                    compareValue =`rack-${i+1}`
+                    console.log(`The medicine is in Rack-${i+1} of shelf-${j+1} of container-${k+1}`)
                 }
             }
         }
     }
 }
-function rackHighlighter(Racks){
-    let show = document.querySelector('#container')
-    tabletCon.classList.add('highlightColor')
-    for(let a=0; a<racks.length; a++){
-        if(rack === show.children[a]){
-            // show.children[a].classList.add('visible')
-            break;
-        }else{
-            show.children[a].classList.add('blur')
-            show.children[a].classList.remove('visible')
-        }
-    }
+for(let x=0; x<viewSelector.length; x++){
+    console.log(viewSelector[x])
 }
-function display(){
-    let show = document.getElementById('biller')
-    show.classList.remove('hide')
-}
-function blinking(value){
-    if (value < 30){
-        tabletCon.classList.remove('highlightColor')
-        tabletCon.classList.add('blink')
-    }
-}
-function billing(){
-    quantityValue = document.getElementById('quantityField').value
-    console.log(quantityValue)
-    let availability = selectedMedicine.currentQuantity - quantityValue
-    selectedMedicine.currentQuantity = availability
-    console.log(selectedMedicine )
-    availableQuantity.innerHTML= selectedMedicine.currentQuantity
-    blinking(availability)
-    let totalPrice =document.getElementById('price')
-    totalPrice.innerHTML = selectedMedicine.pricePerUnit*quantityValue
-}
-function rackGenerator(value){
-    for(let x=0; x<value.length; x++){
-        let rack = document.createElement('div')
-        rack.id = 'rack'+(x+1)
-        rack.className='rack-common-style rack'+(x+1)
-        let shelfLength = value[x]
-        for(let y=0; y<shelfLength.length; y++){
-            let shelf = document.createElement('div')
-            shelf.id = x+'shelf'+(y+1)
-            shelf.className='shelf-layout shelf-common-style shelf-style shelf'+(y+1)
-            let containerLength = shelfLength[y]
-            for(let z=0; z<containerLength.length; z++){
-                let tablet = document.createElement('div')
-                tablet.className = 'container-common-style text-style'
-                tablet.id =y+ 'tablet'+(z+1)
-                tablet.innerHTML = `${value[x][y][z].medicineName}`
-                shelf.appendChild(tablet)
-            }
-            rack.appendChild(shelf)
-        }
-        document.getElementById('container').appendChild(rack)
-    }
-}
-rackGenerator(racks)
+search(racks)

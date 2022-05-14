@@ -1,0 +1,147 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+.content{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.layer-1{
+    z-index: 100;
+}
+.layer-2{
+    z-index: 99;
+}
+.layer-3{
+    z-index: 98;
+}
+.layer-4{
+    z-index: 97;
+}
+.layer-5{
+    z-index: 96;
+}
+.layer-6{
+    z-index: 95;
+}
+.layer-7{
+    z-index: 94;
+}
+.layer-8{
+    z-index: 93;
+}
+.first-rack{
+    transform: translate3d(0px,0px,0px);
+}
+.second-rack{
+    transform: translate3d(4px,0px,-150px);
+}
+.third-rack{
+    transform: translate3d(8px,0px,-300px);
+}
+.fourth-rack{
+    transform: translate3d(12px,0px,-450px);
+}
+.fifth-rack{
+    transform: translate3d(16px,0px,-600px);
+}
+.sixth-rack{
+    transform: translate3d(20px,0px,-750px);
+}
+.seventh-rack{
+    transform: translate3d(24px,0px,-900px);
+}
+.scene{
+    width: 830px;
+    height: 600px;
+    position: absolute;
+    perspective-origin: right;
+    perspective: 1200px;
+}
+.cuboid{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+.cuboid-common-face{
+    position: absolute;
+    perspective: 200px;
+}
+.rack-background{
+    background-color: #DDDDDD;;
+}
+.front{
+    width: 400px;
+    height: 600px;
+    transform: rotateY(0deg) translateZ(50px);
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+}
+.back{
+    width: 400px;
+    height: 600px;
+    transform: rotateY(180deg) translateZ(50px);
+    border: 2px solid black;
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+}
+.right{
+    width: 100px;
+    height: 600px;
+    border: 2px solid black;
+    transform: rotateY(90deg) translateZ(350px);
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+}
+.left{
+    width: 100px;
+    height: 600px;
+    border: 2px solid black;
+    transform: rotateY(-90deg) translateZ(50px);
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+}
+.top{
+    width: 400px;
+    height: 100px;
+    border: 2px solid black;
+    transform: rotateX(90deg) translateZ(50px);
+}
+.bottom{
+    width: 400px;
+    height: 100px;
+    border: 2px solid black;
+    transform: rotateX(-90deg) translateZ(550px);
+}
+.child{
+    outline: 2px solid #06113C;
+}
+.shelf{
+    outline: 2px solid #06113C;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.container{
+    outline: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-color{
+    background-color: blue;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.show{
+    opacity: 0.5;
+}
+.hide{
+    opacity: 0;
+}
