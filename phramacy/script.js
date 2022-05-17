@@ -577,7 +577,7 @@ function rackHighlighter(Racks){
     tabletCon.classList.add('highlightColor')
     for(let a=0; a<racks.length; a++){
         if(rack === show.children[a]){
-            // show.children[a].classList.add('visible')
+            show.children[a].classList.add('visible')
             break;
         }else{
             show.children[a].classList.add('blur')

@@ -3,13 +3,49 @@
     padding: 0%;
     box-sizing: border-box;
 }
+.common-gap{
+    gap: 7px;
+}
+.pharmacy-flex{
+    display: flex;
+}
+.pharmacy-center{
+    align-items: center;
+}
+.pharmacy-justify-center{
+    justify-content: center;
+}
+.pharmacy-justify-spacebetween{
+    justify-content: space-between;
+}
+.pharmacy-grid{
+    display: grid;
+}
+.path-direction{
+    flex-direction: column;
+}
+.input-box{
+    padding: 10px 10px;
+    outline: none;
+    font-size: 16px;
+}
+.search-btn{
+    background-color: green;
+    border: none;
+    border-radius: 2px;
+    font-size: 15px;
+    color: white;
+    padding: 10px 20px;
+}
 .content{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.layouting{
     width: 100vw;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    grid-template-columns: 0.8fr 1fr 1.2fr;
 }
 .layer-1{
     z-index: 100;
@@ -35,26 +71,29 @@
 .layer-8{
     z-index: 93;
 }
-.first-rack{
+.rack-1{
     transform: translate3d(0px,0px,0px);
 }
-.second-rack{
+.rack-2{
     transform: translate3d(4px,0px,-150px);
 }
-.third-rack{
+.rack-3{
     transform: translate3d(8px,0px,-300px);
 }
-.fourth-rack{
+.rack-4{
     transform: translate3d(12px,0px,-450px);
 }
-.fifth-rack{
+.rack-5{
     transform: translate3d(16px,0px,-600px);
 }
-.sixth-rack{
+.rack-6{
     transform: translate3d(20px,0px,-750px);
 }
-.seventh-rack{
+.rack-7{
     transform: translate3d(24px,0px,-900px);
+}
+.rack-8{
+    transform: translate3d(28px,0px,-1050px);
 }
 .scene{
     width: 830px;
@@ -88,24 +127,18 @@
     height: 600px;
     transform: rotateY(180deg) translateZ(50px);
     border: 2px solid black;
-    display: grid;
-    grid-template-rows: repeat(3,1fr);
 }
 .right{
     width: 100px;
     height: 600px;
     border: 2px solid black;
     transform: rotateY(90deg) translateZ(350px);
-    display: grid;
-    grid-template-rows: repeat(3,1fr);
 }
 .left{
     width: 100px;
     height: 600px;
     border: 2px solid black;
     transform: rotateY(-90deg) translateZ(50px);
-    display: grid;
-    grid-template-rows: repeat(3,1fr);
 }
 .top{
     width: 400px;
@@ -132,16 +165,108 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.container-color{
-    background-color: blue;
+    background-color: #86d2fd;
     font-size: 20px;
     font-weight: bold;
     font-family: sans-serif;
 }
-.show{
-    opacity: 0.5;
+.search-container{
+    width: 95%;
+    padding: 20px;
+    height: auto;
+    border: 2px solid black;
+    gap: 30px;
+}
+.path-way{
+    width: 400px;
+    height: 50px;
+    border: 1px solid black;
+    padding: 5px;
+}
+.detail-style{
+    width: 300px;
+    height: 120px;
+    border: 1px solid black;
+    padding: 10px;
+}
+.value-style{
+    color: red;
+}
+.biller{
+    width: 95%;
+    height: 300px;
+    padding: 10px;
+    border: 2px solid black;
+}
+.total-box{
+    width: 100px;
+    height: 30px;
+    padding: 5px 10px;
+    border: 1px solid black;
+}
+.interFace{
+    padding: 20px;
+    gap: 20px;
 }
 .hide{
-    opacity: 0;
+    display: none;
+}
+.visible-one{
+    opacity: 1;
+}
+.hide-one{
+    animation: slider 1s linear both;
+}
+@keyframes slider{
+    0% {
+        transform: translateZ(1);
+    }
+    100%{
+        transform: translateZ(2000px);
+    }
+}
+.high-light-color{
+    background-color:  #dea7d3;
+}
+.blink{
+    animation: blink 1s steps(5,start) infinite;
+    background-color: red;
+}
+@keyframes blink {
+    to{
+        visibility: hidden;
+    }
+}
+.table-container{
+    overflow-y: scroll;
+    margin: 18px;
+    background-color: #dde5b6;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+.table-header{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    text-align: center;
+    padding: 15px 2px;
+}
+.table-body{
+    display: grid;
+    grid-template-rows: auto;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+.detail{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.medicine-list-section{
+    width: 70%;
+    height: 90vh;
+    grid-template-rows: auto 1fr;
+    padding: 15px 0px;
+}
+.med-list-btn{
+    padding: 5px 20px;
 }

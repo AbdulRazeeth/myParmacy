@@ -8,216 +8,53 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="content" id="content">
-        <div class="scene layer-1" id="rack-1">
-            <div class="cuboid first-rack">
-                <div class="front cuboid-common-face">
-                    <div class="shelf">
-                        <div class="container container-color"> med001 </div>
-                        <div class="container container-color"> med002 </div>
-                        <div class="container container-color"> med003 </div>
-                    </div>
-                    <div class="shelf">
-                        <div class="container container-color"> med004 </div>
-                        <div class="container container-color"> med005 </div>
-                        <div class="container container-color"> med006 </div>
-                    </div>
-                    <div class="shelf">
-                        <div class="container container-color"> med007 </div>
-                        <div class="container container-color"> med008 </div>
-                        <div class="container container-color"> med009 </div>
-                    </div>
+    <section class="layouting pharmacy-grid">
+        <div>
+            <div class="pharmacy-flex path-direction interFace">
+                <div class="search-container pharmacy-flex pharmacy-justify-center path-direction pharmacy-center">
+                    <h1> Path Finder </h1>
+                    <span class="pharmacy-flex pharmacy-justify-center path-direction pharmacy-center common-gap">
+                        <input type="text" class="input-box" id="input-value">
+                        <button class="search-btn" onclick="search(racks)"> Search </button>
+                    </span>
+                    <span class="pathFace pharmacy-flex pharmacy-center pharmacy-justify-center path-direction common-gap">
+                        <h3> Path Of The Medicine </h3>
+                        <p id="pathWay" class="path-way"></p>
+                    </span>
+                    <span class="product-detail-face pharmacy-flex path-direction common-gap">
+                        <h3> Product Details </h3>
+                        <span class="detail-style pharmacy-flex path-direction common-gap">
+                            <h4 class="med-name"> Medicine name: <span id="med-name" class="value-style"></span></h4>
+                                <h4 class="total-cap"> Total capacity: <span id="total-cap" class="value-style"></span></h4>
+                                <h4 class="avai-quantity"> Available Quantity: <span id="avai-quan" class="value-style"></span></h4>
+                                <h4 class="avai-quantity"> price per unit: <span id="price-unit" class="value-style"></span></h4>
+                        </span>
+                    </span>
+                    <button class="search-btn" onclick="showBillingMenu()"> Click here to Bill the Medicine </button>
                 </div>
-                <div class="back cuboid-common-face rack-background"></div>
-                <div class="right cuboid-common-face rack-background"></div>
-                <div class="left cuboid-common-face rack-background"></div>
-                <div class="top cuboid-common-face rack-background">top</div>
-                <div class="bottom cuboid-common-face rack-background">bottom</div>
+                <div class="biller biller-face-hide pharmacy-flex path-direction pharmacy-center pharmacy-justify-spacebetween hide" id="billing-menu">
+                    <h1> Billing </h1>
+                    <span class="pharmacy-flex path-direction common-gap">
+                        <h4> Quantity </h4>
+                        <input type="number" class="input-box" name="" id="quantity">
+                    </span>
+                    <button class="search-btn" onclick="billing(selectedContainer)"> Buy </button>
+                    <span class="pharmacy-flex path-direction common-gap">
+                        <h3> Total Price </h3>
+                        <p class="total-box" id="price"></p>
+                    </span>
+                </div>
             </div>
         </div>
-        <div class="scene layer-2" id="rack-2">
-            <div class="cuboid second-rack">
-                <div class="front cuboid-common-face">
-                    <div class="shelf">
-                        <div class="container container-color">med010</div>
-                        <div class="container container-color">med011</div>
-                        <div class="container container-color">med012</div>
-                    </div>
-                    <div class="shelf">
-                        <div class="container container-color">med013</div>
-                        <div class="container container-color">med014</div>
-                        <div class="container container-color">med015</div>
-                    </div>
-                    <div class="shelf">
-                        <div class="container container-color">med016</div>
-                        <div class="container container-color">med017</div>
-                        <div class="container container-color">med018</div>
-                    </div>
-                </div>
-                <div class="back cuboid-common-face rack-background"></div>
-                <div class="right cuboid-common-face rack-background"></div>
-                <div class="left cuboid-common-face rack-background"></div>
-                <div class="top cuboid-common-face rack-background">top</div>
-                <div class="bottom cuboid-common-face rack-background">bottom</div>
+        <div class="pharmacy-grid medicine-list-section">
+            <div class="med-list-btn pharmacy-flex path-direction">
+                <button class="search-btn" onclick="tableGenerator(racks)"> Medicine List </button>
             </div>
-        </div>
-        <div class="scene layer-3" id="rack-3">
-            <div class="cuboid third-rack">
-                <div class="front cuboid-common-face">
-                    <div class="shelf">
-                        <div class="container container-color">med019</div>
-                        <div class="container container-color">med020</div>
-                        <div class="container container-color">med021</div>
-                    </div>
-                    <div class="shelf">
-                        <div class="container container-color">med022</div>
-                        <div class="container container-color">med023</div>
-                        <div class="container container-color">med024</div>
-                    </div>
-                    <div class="shelf">
-                        <div class="container container-color">med025</div>
-                        <div class="container container-color">med026</div>
-                        <div class="container container-color">med027</div>
-                    </div>
-                </div>
-                <div class="back cuboid-common-face rack-background"></div>
-                <div class="right cuboid-common-face rack-background"></div>
-                <div class="left cuboid-common-face rack-background"></div>
-                <div class="top cuboid-common-face rack-background">top</div>
-                <div class="bottom cuboid-common-face rack-background">bottom</div>
+            <div id="table-container" class="table-container">
             </div>
-        </div>
-        <div class="scene layer-4" id="rack-4">
-            <div class="cuboid fourth-rack">
-                <div class="front cuboid-common-face">
-                    <div class="shelf">
-                        <div class="container container-color">med028</div>
-                        <div class="container container-color">med029</div>
-                        <div class="container container-color">med030</div>
-                    </div>
-                    <div class="shelf">
-                        <div class="container container-color">med031</div>
-                        <div class="container container-color">med032</div>
-                        <div class="container container-color">med033</div>
-                    </div>
-                    <div class="shelf">
-                        <div class="container container-color">med034</div>
-                        <div class="container container-color">med035</div>
-                        <div class="container container-color">med036</div>
-                    </div>
-                </div>
-                <div class="back cuboid-common-face rack-background"></div>
-                <div class="right cuboid-common-face rack-background"></div>
-                <div class="left cuboid-common-face rack-background"></div>
-                <div class="top cuboid-common-face rack-background">top</div>
-                <div class="bottom cuboid-common-face rack-background">bottom</div>
-            </div>
-        </div>
-        <div class="scene layer-5" id="rack-5">
-            <div class="cuboid fifth-rack">
-                <div class="front cuboid-common-face">
-                    <div class="shelf">
-                        <div class="container container-color">med037</div>
-                        <div class="container container-color">med038</div>
-                        <div class="container container-color">med039</div>
-                    </div>
-                    <div class="shelf">
-                        <div class="container container-color">med040</div>
-                        <div class="container container-color">med041</div>
-                        <div class="container container-color">med042</div>
-                    </div>
-                    <div class="shelf">
-                        <div class="container container-color">med043</div>
-                        <div class="container container-color">med044</div>
-                        <div class="container container-color">med045</div>
-                    </div>
-                </div>
-                <div class="back cuboid-common-face rack-background"></div>
-                <div class="right cuboid-common-face rack-background"></div>
-                <div class="left cuboid-common-face rack-background"></div>
-                <div class="top cuboid-common-face rack-background">top</div>
-                <div class="bottom cuboid-common-face rack-background">bottom</div>
-            </div>
-        </div>
-        <div class="scene layer-6" id="rack-6">
-            <div class="cuboid sixth-rack">
-                <div class="front cuboid-common-face">
-                    <div class="shelf">
-                        <div class="container container-color">med046</div>
-                        <div class="container container-color">med047</div>
-                        <div class="container container-color">med048</div>
-                    </div>
-                    <div class="shelf">
-                        <div class="container container-color">med049</div>
-                        <div class="container container-color">med050</div>
-                        <div class="container container-color">med051</div>
-                    </div>
-                    <div class="shelf">
-                        <div class="container container-color">med052</div>
-                        <div class="container container-color">med053</div>
-                        <div class="container container-color">med054</div>
-                    </div>
-                </div>
-                <div class="back cuboid-common-face rack-background"></div>
-                <div class="right cuboid-common-face rack-background"></div>
-                <div class="left cuboid-common-face rack-background"></div>
-                <div class="top cuboid-common-face rack-background">top</div>
-                <div class="bottom cuboid-common-face rack-background">bottom</div>
-            </div>
-        </div>
-        <div class="scene layer-7" id="rack-7">
-            <div class="cuboid seventh-rack">
-                <div class="front cuboid-common-face">
-                    <div class="shelf">
-                        <div class="container container-color">med055</div>
-                        <div class="container container-color">med056</div>
-                        <div class="container container-color">med057</div>
-                    </div>
-                    <div class="shelf">
-                        <div class="container container-color">med058</div>
-                        <div class="container container-color">med059</div>
-                        <div class="container container-color">med060</div>
-                    </div>
-                    <div class="shelf">
-                        <div class="container container-color">med061</div>
-                        <div class="container container-color">med062</div>
-                        <div class="container container-color">med063</div>
-                    </div>
-                </div>
-                <div class="back cuboid-common-face rack-background"></div>
-                <div class="right cuboid-common-face rack-background"></div>
-                <div class="left cuboid-common-face rack-background"></div>
-                <div class="top cuboid-common-face rack-background">top</div>
-                <div class="bottom cuboid-common-face rack-background">bottom</div>
-            </div>
-        </div>
-        <div class="scene layer-8" id="rack-8">
-            <div class="cuboid eigth-rack">
-                <div class="front cuboid-common-face">
-                    <div class="shelf">
-                        <div class="container container-color">med064</div>
-                        <div class="container container-color">med065</div>
-                        <div class="container container-color">med066</div>
-                    </div>
-                    <div class="shelf">
-                        <div class="container container-color">med067</div>
-                        <div class="container container-color">med068</div>
-                        <div class="container container-color">med069</div>
-                    </div>
-                    <div class="shelf">
-                        <div class="container container-color">med070</div>
-                        <div class="container container-color">med071</div>
-                        <div class="container container-color">med072</div>
-                    </div>
-                </div>
-                <div class="back cuboid-common-face rack-background"></div>
-                <div class="right cuboid-common-face rack-background"></div>
-                <div class="left cuboid-common-face rack-background"></div>
-                <div class="top cuboid-common-face rack-background">top</div>
-                <div class="bottom cuboid-common-face rack-background">bottom</div>
-            </div>
-        </div>
-    </div>
+        </div>    
+      <div class="content pharmacy-flex pharmacy-center pharmacy-justify-center" id="content"></div>
+    </section>  
     <script src="./script.js"></script>
 </body>
 </html>
