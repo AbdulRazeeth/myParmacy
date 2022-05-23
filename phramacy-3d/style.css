@@ -3,6 +3,19 @@
     padding: 0%;
     box-sizing: border-box;
 }
+:root{
+    --arrangedDistance:1000;
+    --selectedRack:0;
+}
+html{
+    font-family: sans-serif;
+}
+body{
+    overflow: hidden;
+}
+.search-inter-face{
+    z-index: 102;
+}
 .common-gap{
     gap: 7px;
 }
@@ -41,6 +54,7 @@
     width: 100%;
     height: 100%;
     position: relative;
+    justify-content: start;
 }
 .layouting{
     width: 100vw;
@@ -72,41 +86,43 @@
     z-index: 93;
 }
 .rack-1{
-    transform: translate3d(0px,0px,0px);
+    transform: translate3d(0px,0px,calc(0 * (var(--arrangedDistance)) * (-1px) + (var(--selectedRack) * var(--arrangedDistance) * 1px)));
 }
 .rack-2{
-    transform: translate3d(4px,0px,-150px);
+    transform: translate3d(4px,0px,calc(1 * (var(--arrangedDistance)) * (-1px) + (var(--selectedRack) * var(--arrangedDistance) * 1px)));
 }
 .rack-3{
-    transform: translate3d(8px,0px,-300px);
+    transform: translate3d(8px,0px,calc(2 * (var(--arrangedDistance)) * (-1px) + (var(--selectedRack) * var(--arrangedDistance) * 1px)));
 }
 .rack-4{
-    transform: translate3d(12px,0px,-450px);
+    transform: translate3d(12px,0px,calc(3 * (var(--arrangedDistance)) * (-1px) + (var(--selectedRack) * var(--arrangedDistance) * 1px)));
 }
 .rack-5{
-    transform: translate3d(16px,0px,-600px);
+    transform: translate3d(16px,0px,calc(4 * (var(--arrangedDistance)) * (-1px) + (var(--selectedRack) * var(--arrangedDistance) * 1px)));
 }
 .rack-6{
-    transform: translate3d(20px,0px,-750px);
+    transform: translate3d(20px,0px,calc(5 * (var(--arrangedDistance)) * (-1px) + (var(--selectedRack) * var(--arrangedDistance) * 1px)));
 }
 .rack-7{
-    transform: translate3d(24px,0px,-900px);
+    transform: translate3d(24px,0px,calc(6 * (var(--arrangedDistance)) * (-1px) + (var(--selectedRack) * var(--arrangedDistance) * 1px)));
 }
 .rack-8{
-    transform: translate3d(28px,0px,-1050px);
+    transform: translate3d(28px,0px,calc(7 * (var(--arrangedDistance)) * (-1px) + (var(--selectedRack) * var(--arrangedDistance) * 1px)));
 }
 .scene{
     width: 830px;
     height: 600px;
     position: absolute;
-    perspective-origin: right;
+    perspective-origin: -55%;
     perspective: 1200px;
+    left: 200px;
 }
 .cuboid{
     width: 100%;
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
+    transition: 2s;
 }
 .cuboid-common-face{
     position: absolute;
@@ -208,22 +224,15 @@
     padding: 20px;
     gap: 20px;
 }
-.hide{
-    display: none;
+.rack-section{
+    height: 90%;
+    padding: 20px 50px;
+    grid-template-rows: auto 1fr auto;
 }
-.visible-one{
-    opacity: 1;
-}
-.hide-one{
-    animation: slider 1s linear both;
-}
-@keyframes slider{
-    0% {
-        transform: translateZ(1);
-    }
-    100%{
-        transform: translateZ(2000px);
-    }
+.movement-btn{
+    gap: 50px;
+    z-index: 1000;
+    justify-content: flex-end;
 }
 .high-light-color{
     background-color:  #dea7d3;
@@ -238,17 +247,23 @@
     }
 }
 .table-container{
-    overflow-y: scroll;
-    margin: 18px;
-    background-color: #dde5b6;
-    display: grid;
     grid-template-rows: auto 1fr;
+    margin: 18px 0px;
+    overflow: auto;
+    border: 2px solid black;
 }
-.table-header{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+.table-header-style{
     text-align: center;
-    padding: 15px 2px;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+    border-bottom: 2px solid black;
+}
+.show-scroll{
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: green;
 }
 .table-body{
     display: grid;
@@ -264,9 +279,10 @@
 .medicine-list-section{
     width: 70%;
     height: 90vh;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto 1.5fr 1.5fr;
     padding: 15px 0px;
+    z-index: 1005;
 }
-.med-list-btn{
-    padding: 5px 20px;
+.total-medicine-billing{
+    border: 2px solid black;
 }

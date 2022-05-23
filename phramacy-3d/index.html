@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
     <section class="layouting pharmacy-grid">
-        <div>
+        <div class="search-inter-face">
             <div class="pharmacy-flex path-direction interFace">
                 <div class="search-container pharmacy-flex pharmacy-justify-center path-direction pharmacy-center">
                     <h1> Path Finder </h1>
@@ -47,13 +48,35 @@
             </div>
         </div>
         <div class="pharmacy-grid medicine-list-section">
-            <div class="med-list-btn pharmacy-flex path-direction">
-                <button class="search-btn" onclick="tableGenerator(racks)"> Medicine List </button>
+            <div class="med-list-btn pharmacy-flex pharmacy-justify-spacebetween">
+                <span class="pharmacy-flex common-gap">
+                    <button class="search-btn" onclick="tableGenerator(medListArr)"> Medicine List </button>
+                    <button class="search-btn" onclick="closeMedicineList()"> Close </button>
+                </span>
+                <span class="pharmacy-flex common-gap pharmacy-center">
+                    <span> Sort-by </span>
+                    <span class="material-symbols-outlined" onclick="sortAscending(medListArr)">
+                        arrow_downward
+                    </span>
+                    <span class="material-symbols-outlined" onclick="sortDescending(medListArr)">
+                        arrow_upward
+                    </span>
+                </span>
             </div>
-            <div id="table-container" class="table-container">
+            <div id="table-container" class="table-container pharmacy-grid">
             </div>
-        </div>    
-      <div class="content pharmacy-flex pharmacy-center pharmacy-justify-center" id="content"></div>
+            <div class="total-medicine-billing"></div>
+        </div>
+      <div class="pharmacy-grid rack-section">
+          <div class="pharmacy-flex pharmacy-center rack-header pharmacy-justify-center">
+              <h1> Rack Section </h1>
+          </div>  
+          <div class="content pharmacy-flex pharmacy-center" id="content"></div>
+          <div class="pharmacy-flex movement-btn  pharmacy-center">
+              <button class="search-btn" onclick="previous(showRack)"> Previous Rack </button>
+              <button class="search-btn" onclick="next(showRack)"> Next Rack </button>
+          </div>
+     </div>
     </section>  
     <script src="./script.js"></script>
 </body>

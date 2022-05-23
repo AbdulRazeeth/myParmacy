@@ -550,14 +550,19 @@ let toHighLight
 let activeShelf
 let activeContainer
 let dynamic
+let medListArr =[]
+let showRack = 0
+let cssVariableSelector = document.querySelector(':root')
+let tableDetail
 function search(value){
-    searchValue = document.getElementById('input-value').value
+    searchValue = document.getElementById('input-value').value.toLowerCase() || clickValue
     for(let i=0; i<value.length; i++){
         for(let j=0; j<value[i].length; j++){
             for(let k=0; k<value[i][j].length;k++){
                 if(searchValue === value[i][j][k].medicineName){
                      result = `The medicine is in Rack-${i+1} of shelf-${j+1} of container-${k+1}`
                     selectedRack = value[i]
+                    showRack = i
                     selectedShelf = value[i][j]
                     selectedContainer = value[i][j][k]
                     activeRack = viewSelector.children[i]
@@ -565,15 +570,30 @@ function search(value){
                     if(dynamic){
                         document.getElementById(dynamic).classList.remove('high-light-color')
                     }
+                    cssVariableSelector.style.setProperty('--selectedRack',`${i}`)      
                     activeContainer =`${i}${j}container${k+1}`
+                    document.getElementById(activeContainer).classList.add('high-light-color')
                     dynamic = activeContainer
+                    clear()
                     pathWay(result)
                     medicineDetail(selectedContainer)
-                    rackHighLighter(racks)
                 }
             }
         }
     }
+}
+function clear(){
+    document.getElementById('input-value').value = '';
+    document.getElementById('quantity').value = '';
+    document.getElementById('price').innerHTML = '';
+}
+function next(value){
+    showRack = value+1
+    cssVariableSelector.style.setProperty('--selectedRack',`${value+1}`)
+}
+function previous(value){
+    showRack = value-1
+    cssVariableSelector.style.setProperty('--selectedRack',`${value-1}`)
 }
 function pathWay(value){
     way.innerHTML = value
@@ -596,6 +616,10 @@ function notification(value){
 }
 function billing(selectedContainer){
     numberOfQuantity =document.getElementById('quantity').value;
+    if(numberOfQuantity > 100 || numberOfQuantity <= 0){
+        alert('Enter the valid Quantity(1-100) to bill')
+        return
+    }
     availability = selectedContainer.currentQuantity - numberOfQuantity;
     selectedContainer.currentQuantity = availability;
     medicineDetail(selectedContainer)
@@ -649,43 +673,73 @@ function rackGenerator(value){
 }
 }
 rackGenerator(racks)
-function rackHighLighter(value){
-    document.getElementById(activeContainer).classList.add('high-light-color')
-    for(let x=0; x<value.length; x++){
-        if(activeRack === viewSelector.children[x]){
-        viewSelector.children[x].classList.remove('hide-one')
-        document.querySelector(`.rack-${x+1}`).classList.remove('hide-one')
-        viewSelector.children[x].classList.add('visible-one')
-        break;
-    }
-    else{
-        viewSelector.children[x].classList.add('hide-one')
-        document.querySelector(`.rack-${x+1}`).classList.add('hide-one')
-        viewSelector.children[x].classList.remove('visible-one')
-    }
-}
-}
-function tableGenerator(value){
-    document.getElementById('table-container').innerHTML =''
-    for(let m=0; m<value.length; m++){
-        for(let n=0; n<value[m].length; n++){
-            for(let o=0; o<value[m][n].length; o++){
-                let tableBody = document.createElement('div')
-                tableBody.className ='table-body'
-                let tableDetail = document.createElement('div')
-                tableDetail.className ='detail'
-                let medicine = document.createElement('div')
-                medicine.id = `${m}${n}medicine${o+1}`
-                tableDetail.appendChild(medicine)
-                let count =document.createElement('div')
-                count.id = `${m}${n}quantity${o+1}`
-                tableDetail.appendChild(count)
-                tableBody.appendChild(tableDetail)
-                document.getElementById('table-container').appendChild(tableBody)
-                document.getElementById(`${m}${n}medicine${o+1}`).innerHTML = value[m][n][o].medicineName
-                document.getElementById(`${m}${n}quantity${o+1}`).innerHTML = value[m][n][o].currentQuantity
+function takeMedicine(value){
+    for(let a=0; a<value.length; a++){
+        for(let b=0; b<value[a].length; b++){
+            for(let c=0; c<value[a][b].length; c++){
+                medListArr.push(value[a][b][c])
             }
         }
     }
 }
+function tableGenerator(value){
+    document.getElementById('table-container').innerHTML =''
+    let tableHeader = document.createElement('div')
+    tableHeader.className ='detail show-scroll'
+    let headerOne = document.createElement('div')
+    headerOne.id = 'medicine'
+    headerOne.className = 'table-header-style'
+    tableHeader.appendChild(headerOne)
+    let headerTwo = document.createElement('div')
+    headerTwo.id = 'med-quantity'
+    headerTwo.className ='table-header-style'
+    tableHeader.appendChild(headerTwo)
+    document.getElementById('table-container').appendChild(tableHeader);
+    document.getElementById('medicine').innerHTML = 'Medicine Name'
+    document.getElementById('med-quantity').innerHTML = 'Available Quantity'
+            for(let o=0; o<value.length; o++){
+                let tableBody = document.createElement('div')
+                tableBody.className ='table-body'
+                tableDetail = document.createElement('div')
+                tableDetail.className ='detail'
+                let medicine = document.createElement('div')
+                medicine.id = `medicine${o+1}`
+                medicine.setAttribute('onclick','select(this.id)')
+                tableDetail.appendChild(medicine)
+                let count =document.createElement('div')
+                count.id = `quantity${o+1}`
+                tableDetail.appendChild(count)
+                tableBody.appendChild(tableDetail)
+                document.getElementById('table-container').appendChild(tableBody)
+                document.getElementById(`medicine${o+1}`).innerHTML = value[o].medicineName
+                document.getElementById(`quantity${o+1}`).innerHTML = value[o].currentQuantity
+            }
+}
+let clickValue
+function select(clicked_id){
+    clickValue = document.getElementById(clicked_id).innerHTML
+    searchValue = clickValue
+    console.log(clickValue)
+    search(racks)
+}
+function closeMedicineList(){
+    document.getElementById('table-container').innerHTML = ''
+}
+function sortAscending(){
+    medListArr.sort(function(a,b){
+        return a.currentQuantity - b.currentQuantity
+    })
+    console.log(medListArr)
+    tableGenerator(medListArr)
+}
+function sortDescending(){
+    medListArr.sort(function(a,b){
+        return b.currentQuantity - a.currentQuantity
+    })
+    console.log(medListArr)
+    tableGenerator(medListArr)
+}
+takeMedicine(racks)
+
+
 
