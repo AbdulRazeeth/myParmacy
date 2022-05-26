@@ -554,8 +554,10 @@ let medListArr =[]
 let showRack = 0
 let cssVariableSelector = document.querySelector(':root')
 let tableDetail
+let takeInput
 function search(value){
-    searchValue = document.getElementById('input-value').value.toLowerCase() || clickValue
+    searchValue = document.getElementById('input-value').value.toLowerCase() || clickValue || containerClick
+    takeInput = document.getElementById('input-value').value.toLowerCase()
     for(let i=0; i<value.length; i++){
         for(let j=0; j<value[i].length; j++){
             for(let k=0; k<value[i][j].length;k++){
@@ -577,8 +579,23 @@ function search(value){
                     clear()
                     pathWay(result)
                     medicineDetail(selectedContainer)
+                    medicineHighlight(medListArr)
                 }
             }
+        }
+    }
+}
+let dynamicValue
+function medicineHighlight(value){
+    if(dynamicValue){
+        document.getElementById(dynamicValue).classList.remove('yellow')
+    }
+    for(let m=0; m<value.length; m++){
+        let compare = document.getElementById(`table-detail${m+1}`)
+        if(compare.children[0].innerHTML === searchValue){
+            compare.classList.add('yellow')
+            quantityChange= compare.children[1]
+            dynamicValue = `table-detail${m+1}`
         }
     }
 }
@@ -586,6 +603,7 @@ function clear(){
     document.getElementById('input-value').value = '';
     document.getElementById('quantity').value = '';
     document.getElementById('price').innerHTML = '';
+    // document.getElementById(dynamicTable).classList.remove('yellow')
 }
 function next(value){
     showRack = value+1
@@ -610,20 +628,30 @@ function showBillingMenu(){
 }
 function notification(value){
     if(value<30){
-        document.getElementById(activeContainer).classList.remove('high-light-Color')
+        // document.getElementById(activeContainer).classList.remove('high-light-Color')
         document.getElementById(activeContainer).classList.add('blink')
     }
 }
 function billing(selectedContainer){
     numberOfQuantity =document.getElementById('quantity').value;
+    quantityHolder.push(Number(numberOfQuantity))
+    console.log(quantityHolder)
     if(numberOfQuantity > 100 || numberOfQuantity <= 0){
         alert('Enter the valid Quantity(1-100) to bill')
         return
     }
     availability = selectedContainer.currentQuantity - numberOfQuantity;
+    if(availability<=0){
+        alert('The required quantity is not available')
+        return
+    }
+    quantityChange.innerHTML = availability
     selectedContainer.currentQuantity = availability;
     medicineDetail(selectedContainer)
     totalPrice = numberOfQuantity*selectedContainer.pricePerUnit
+    totalPriceHolder.push(totalPrice)
+    masterBilling(iteration)
+    dateTime()
     totalPriceUpdate.innerHTML = totalPrice
     notification(availability)
 }
@@ -647,6 +675,7 @@ function rackGenerator(value){
                 let tabletContainer = document.createElement('div')
                 tabletContainer.className = 'container'
                 tabletContainer.id = `${i}${j}container${k+1}`
+                tabletContainer.setAttribute('onClick','containerBackground(this.id)')
                 tabletContainer.innerHTML = value[i][j][k].medicineName
                 shelf.appendChild(tabletContainer)
             }
@@ -660,7 +689,11 @@ function rackGenerator(value){
     right.className ='right cuboid-common-face rack-background'
     cuboid.appendChild(right)
     let left = document.createElement('div')
-    left.className ='left cuboid-common-face rack-background'
+    left.className ='left cuboid-common-face rack-background pharmacy-flex pharmacy-center pharmacy-justify-center'
+    let rackName = document.createElement('span')
+    rackName.className = 'rack-name-style'
+    rackName.innerHTML =`Rack ${i+1}`
+    left.appendChild(rackName)
     cuboid.appendChild(left)
     let top = document.createElement('div')
     top.className ='top cuboid-common-face rack-background'
@@ -681,11 +714,64 @@ function takeMedicine(value){
             }
         }
     }
+    tableGenerator(medListArr)
+}
+let iteration = 0
+let billMedicineName
+let billQuantity
+let medicineRate
+let billTotalAmount
+let quantityHolder=[]
+let totalPriceHolder = []
+function masterBilling(value){
+    iteration = value+1
+    billMedicineName = document.createElement('span')
+    billMedicineName.className =`bill-med-name`
+    billMedicineName.id = `bill-med-name${value+1}`
+    document.getElementById('bill-list').appendChild(billMedicineName)
+    billQuantity = document.createElement('span')
+    billQuantity.className ='bill-quantity'
+    billQuantity.id=`bill-quantity${value+1}`
+    document.getElementById('bill-list').appendChild(billQuantity)
+    medicineRate = document.createElement('span')
+    medicineRate.className = 'bill-med-rate'
+    medicineRate.id = `bill-med-rate${value+1}`
+    document.getElementById('bill-list').appendChild(medicineRate)
+    billTotalAmount = document.createElement('span')
+    billTotalAmount.className = 'bill-total-amount'
+    billTotalAmount.id =`bill-total-amount${value+1}`
+    document.getElementById('bill-list').appendChild(billTotalAmount)
+    masterBilligValue()
+}
+function dateTime(){
+    let d =  new Date()
+    document.getElementById('date-value').innerHTML = d.toLocaleDateString()
+    document.getElementById('time-value').innerHTML =`${d.getHours()}:${d.getMinutes()}`
+}
+function masterBilligValue(){
+    let billMedName = document.getElementById(billMedicineName.id)
+    let enteredQuantity = document.getElementById(billQuantity.id)
+    let particularPrice = document.getElementById(medicineRate.id)
+    let totalIndividualPrice = document.getElementById(billTotalAmount.id)
+    billMedName.innerHTML =selectedContainer.medicineName
+    enteredQuantity.innerHTML = numberOfQuantity
+    particularPrice.innerHTML = selectedContainer.pricePerUnit
+    totalIndividualPrice.innerHTML = totalPrice
+    let totalItems = document.getElementById('total-items')
+    totalItems.innerHTML = iteration
+    let totalQuantity =document.getElementById('total-quantity')
+    totalQuantity.innerHTML =quantityHolder.reduce(reduceFunction)
+    let wholeMedPrice = document.getElementById('total-price')
+    wholeMedPrice.innerHTML = totalPriceHolder.reduce(reduceFunction)
+}
+function reduceFunction(total,num){
+    return total + num
 }
 function tableGenerator(value){
     document.getElementById('table-container').innerHTML =''
     let tableHeader = document.createElement('div')
     tableHeader.className ='detail show-scroll'
+    tableHeader.id = 'header'
     let headerOne = document.createElement('div')
     headerOne.id = 'medicine'
     headerOne.className = 'table-header-style'
@@ -695,35 +781,72 @@ function tableGenerator(value){
     headerTwo.className ='table-header-style'
     tableHeader.appendChild(headerTwo)
     document.getElementById('table-container').appendChild(tableHeader);
+    let sortSection = document.createElement('div')
+    sortSection.className = 'sort-style pharmacy-flex pharmacy-justify-spacebetween pharmacy-center'
+    let sortTitle = document.createElement('span')
+    sortTitle.innerHTML = 'Sort-By'
+    sortSection.appendChild(sortTitle)
+    let iconSection =document.createElement('div')
+    iconSection.className ='pharmacy-flex common-gap'
+    let iconAscending = document.createElement('span')
+    iconAscending.className ="material-symbols-outlined"
+    iconAscending.setAttribute('onClick','sortAscending(medListArr)')
+    iconAscending.innerHTML = 'arrow_downward'
+    iconSection.appendChild(iconAscending)
+    let iconDescending = document.createElement('span')
+    iconDescending.className = 'material-symbols-outlined'
+    iconDescending.setAttribute('onClick','sortDescending(medListArr)')
+    iconDescending.innerHTML = 'arrow_upward'
+    iconSection.appendChild(iconDescending)
+    sortSection.appendChild(iconSection)
+    document.getElementById('table-container').appendChild(sortSection)
     document.getElementById('medicine').innerHTML = 'Medicine Name'
     document.getElementById('med-quantity').innerHTML = 'Available Quantity'
             for(let o=0; o<value.length; o++){
-                let tableBody = document.createElement('div')
-                tableBody.className ='table-body'
                 tableDetail = document.createElement('div')
-                tableDetail.className ='detail'
+                tableDetail.className ='detail table-gap'
+                tableDetail.id = `table-detail${o+1}`
+                tableDetail.setAttribute('onclick','tableBackground(this.id)')
                 let medicine = document.createElement('div')
                 medicine.id = `medicine${o+1}`
-                medicine.setAttribute('onclick','select(this.id)')
                 tableDetail.appendChild(medicine)
                 let count =document.createElement('div')
                 count.id = `quantity${o+1}`
                 tableDetail.appendChild(count)
-                tableBody.appendChild(tableDetail)
-                document.getElementById('table-container').appendChild(tableBody)
+                document.getElementById('table-container').appendChild(tableDetail)
                 document.getElementById(`medicine${o+1}`).innerHTML = value[o].medicineName
                 document.getElementById(`quantity${o+1}`).innerHTML = value[o].currentQuantity
             }
 }
+// tableGenerator(medListArr)
+let dynamicContainer
+let parentContainerId
+let parentTableId
 let clickValue
-function select(clicked_id){
-    clickValue = document.getElementById(clicked_id).innerHTML
-    searchValue = clickValue
-    console.log(clickValue)
-    search(racks)
+let dynamicTable
+let containerClick
+let quantityChange
+function tableBackground(clicked_id){
+    if(dynamicTable){
+        document.getElementById(dynamicTable).classList.remove('yellow')
+    }
+     parentTableId=document.getElementById(clicked_id)
+     clickValue = parentTableId.children[0].innerHTML
+     quantityChange = parentTableId.children[1]
+     document.getElementById(clicked_id).classList.add('yellow')
+     dynamicTable = clicked_id
+     console.log(searchValue)
+     search(racks)
 }
-function closeMedicineList(){
-    document.getElementById('table-container').innerHTML = ''
+function containerBackground(clicked_id){
+    if(dynamicContainer){
+        document.getElementById(dynamicContainer).classList.remove('high-light-color')
+    }
+    parentContainerId = document.getElementById(clicked_id)
+    containerClick = parentContainerId.innerHTML
+    parentContainerId.classList.add('high-light-color')
+    dynamicContainer =clicked_id
+    search(racks)
 }
 function sortAscending(){
     medListArr.sort(function(a,b){
