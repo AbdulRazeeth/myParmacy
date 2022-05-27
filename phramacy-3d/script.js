@@ -557,7 +557,15 @@ let tableDetail
 let takeInput
 function search(value){
     searchValue = document.getElementById('input-value').value.toLowerCase() || clickValue || containerClick
-    takeInput = document.getElementById('input-value').value.toLowerCase()
+    // for(let v=0; v<medListArr.length; v++){
+    //     if(searchValue === medListArr[v].medicineName){
+    //         break;
+    //     }else{
+    //         alert(`wrong medicine entered`)
+    //         return
+    //     }
+    // }
+    // takeInput = document.getElementById('input-value').value.toLowerCase()
     for(let i=0; i<value.length; i++){
         for(let j=0; j<value[i].length; j++){
             for(let k=0; k<value[i][j].length;k++){
@@ -632,21 +640,21 @@ function notification(value){
         document.getElementById(activeContainer).classList.add('blink')
     }
 }
-function billing(selectedContainer){
-    numberOfQuantity =document.getElementById('quantity').value;
+function billing(selectedValue){
+    numberOfQuantity =document.getElementById('quantity').value || cartValue;
     quantityHolder.push(Number(numberOfQuantity))
     console.log(quantityHolder)
     if(numberOfQuantity > 100 || numberOfQuantity <= 0){
         alert('Enter the valid Quantity(1-100) to bill')
         return
     }
-    availability = selectedContainer.currentQuantity - numberOfQuantity;
+    availability = selectedValue.currentQuantity - numberOfQuantity;
     if(availability<=0){
         alert('The required quantity is not available')
         return
     }
     quantityChange.innerHTML = availability
-    selectedContainer.currentQuantity = availability;
+    selectedValue.currentQuantity = availability;
     medicineDetail(selectedContainer)
     totalPrice = numberOfQuantity*selectedContainer.pricePerUnit
     totalPriceHolder.push(totalPrice)
@@ -780,10 +788,20 @@ function tableGenerator(value){
     headerTwo.id = 'med-quantity'
     headerTwo.className ='table-header-style'
     tableHeader.appendChild(headerTwo)
+    let headerFour = document.createElement('div')
+    headerFour.id = 'qty-box'
+    headerFour.className = 'table-header-style'
+    headerFour.innerHTML = 'Shop-Qty'
+    tableHeader.appendChild(headerFour)
+    let headerThree = document.createElement('div')
+    headerThree.id = 'shop-logo'
+    headerThree.className = 'table-header-style'
+    headerThree.innerHTML = 'Shop'
+    tableHeader.appendChild(headerThree)
     document.getElementById('table-container').appendChild(tableHeader);
     let sortSection = document.createElement('div')
     sortSection.className = 'sort-style pharmacy-flex pharmacy-justify-spacebetween pharmacy-center'
-    let sortTitle = document.createElement('span')
+    let sortTitle = document.createElement('h4')
     sortTitle.innerHTML = 'Sort-By'
     sortSection.appendChild(sortTitle)
     let iconSection =document.createElement('div')
@@ -807,12 +825,44 @@ function tableGenerator(value){
                 tableDetail.className ='detail table-gap'
                 tableDetail.id = `table-detail${o+1}`
                 tableDetail.setAttribute('onclick','tableBackground(this.id)')
-                let medicine = document.createElement('div')
+                let medicine = document.createElement('h4')
                 medicine.id = `medicine${o+1}`
+                medicine.className =''
                 tableDetail.appendChild(medicine)
                 let count =document.createElement('div')
                 count.id = `quantity${o+1}`
                 tableDetail.appendChild(count)
+                let quantityBox = document.createElement('div')
+                quantityBox.className ='pharmacy-flex pharmacy-center'
+                quantityBox.id =`quantity${o+1}`
+                let reduce = document.createElement('span')
+                reduce.className = 'reduce-style material-symbols-outlined'
+                reduce.id=`reduce-box${o+1}`
+                reduce.setAttribute('onClick','reduce(this.id)')
+                reduce.innerHTML = 'remove'
+                quantityBox.appendChild(reduce)
+                let inputQuantity = document.createElement('input')
+                inputQuantity.setAttribute('type','number')
+                inputQuantity.setAttribute('min',"1")
+                inputQuantity.setAttribute('max',"100")
+                inputQuantity.setAttribute('value','0')
+                inputQuantity.className ='input-style'
+                inputQuantity.id =`input${o+1}`
+                quantityBox.appendChild(inputQuantity)
+                let increase = document.createElement('span')
+                increase.className = 'reduce-style material-symbols-outlined'
+                increase.id =`increase${o+1}`
+                increase.setAttribute('onClick','add(this.id)')
+                increase.innerHTML ='add'
+                quantityBox.appendChild(increase)
+                tableDetail.appendChild(quantityBox)
+                let shopLogo = document.createElement('span')
+                shopLogo.className = "material-symbols-outlined"
+                shopLogo.id = `shop-logo${o+1}`
+                shopLogo.setAttribute('type','submit')
+                shopLogo.setAttribute('onClick','addToCart(this.id)')
+                shopLogo.innerHTML = 'shopping_cart'
+                tableDetail.appendChild(shopLogo)
                 document.getElementById('table-container').appendChild(tableDetail)
                 document.getElementById(`medicine${o+1}`).innerHTML = value[o].medicineName
                 document.getElementById(`quantity${o+1}`).innerHTML = value[o].currentQuantity
@@ -861,6 +911,21 @@ function sortDescending(){
     })
     console.log(medListArr)
     tableGenerator(medListArr)
+}
+let increment =0
+function reduce(clicked_id){
+    document.getElementById(clicked_id).nextElementSibling.value =Number(document.getElementById(clicked_id).nextElementSibling.value)-1
+}
+function add(clicked_id){
+    console.log("muthu",clicked_id)
+    console.log(document.getElementById(clicked_id).previousElementSibling.value)
+    document.getElementById(clicked_id).previousElementSibling.value =Number (document.getElementById(clicked_id).previousElementSibling.value)+1
+}
+let cartValue
+function addToCart(clicked_id){
+    cartValue= document.getElementById(clicked_id).previousElementSibling.children[1].value
+    console.log(cartValue)
+    billing(selectedContainer)
 }
 takeMedicine(racks)
 
