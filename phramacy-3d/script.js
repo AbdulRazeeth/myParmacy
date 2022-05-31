@@ -557,15 +557,6 @@ let tableDetail
 let takeInput
 function search(value){
     searchValue = document.getElementById('input-value').value.toLowerCase() || clickValue || containerClick
-    // for(let v=0; v<medListArr.length; v++){
-    //     if(searchValue === medListArr[v].medicineName){
-    //         break;
-    //     }else{
-    //         alert(`wrong medicine entered`)
-    //         return
-    //     }
-    // }
-    // takeInput = document.getElementById('input-value').value.toLowerCase()
     for(let i=0; i<value.length; i++){
         for(let j=0; j<value[i].length; j++){
             for(let k=0; k<value[i][j].length;k++){
@@ -749,6 +740,17 @@ function masterBilling(value){
     billTotalAmount.className = 'bill-total-amount'
     billTotalAmount.id =`bill-total-amount${value+1}`
     document.getElementById('bill-list').appendChild(billTotalAmount)
+    let edit =document.createElement('span')
+    edit.className = 'material-symbols-outlined edit-style'
+    edit.id = `edit${value+1}`
+    edit.innerHTML = 'edit'
+    document.getElementById('bill-list').appendChild(edit)
+    let removeCart = document.createElement('span')
+    removeCart.className = 'material-symbols-outlined edit-style edit-style'
+    removeCart.id = `remove-cart${value+1}`
+    removeCart.setAttribute('onClick','deleteElement(this.id)')
+    removeCart.innerHTML = 'remove_shopping_cart'
+    document.getElementById('bill-list').appendChild(removeCart)
     masterBilligValue()
 }
 function dateTime(){
@@ -775,51 +777,65 @@ function masterBilligValue(){
 function reduceFunction(total,num){
     return total + num
 }
+function deleteElement(clicked_id){
+    let firstDelete = document.getElementById(clicked_id)
+    let secondDelete = firstDelete.previousElementSibling
+    let thirdDelete = secondDelete.previousElementSibling
+    let fourthDelete = thirdDelete.previousElementSibling
+    let fifthDelete = fourthDelete.previousElementSibling
+    let sixthDelete = fifthDelete.previousElementSibling
+    firstDelete.remove()
+    secondDelete.remove()
+    thirdDelete.remove()
+    fourthDelete.remove()
+    fifthDelete.remove()
+    sixthDelete.remove()
+}
 function tableGenerator(value){
-    document.getElementById('table-container').innerHTML =''
-    let tableHeader = document.createElement('div')
-    tableHeader.className ='detail show-scroll'
-    tableHeader.id = 'header'
-    let headerOne = document.createElement('div')
-    headerOne.id = 'medicine'
-    headerOne.className = 'table-header-style'
-    tableHeader.appendChild(headerOne)
-    let headerTwo = document.createElement('div')
-    headerTwo.id = 'med-quantity'
-    headerTwo.className ='table-header-style'
-    tableHeader.appendChild(headerTwo)
-    let headerFour = document.createElement('div')
-    headerFour.id = 'qty-box'
-    headerFour.className = 'table-header-style'
-    headerFour.innerHTML = 'Shop-Qty'
-    tableHeader.appendChild(headerFour)
-    let headerThree = document.createElement('div')
-    headerThree.id = 'shop-logo'
-    headerThree.className = 'table-header-style'
-    headerThree.innerHTML = 'Shop'
-    tableHeader.appendChild(headerThree)
-    document.getElementById('table-container').appendChild(tableHeader);
-    let sortSection = document.createElement('div')
-    sortSection.className = 'sort-style pharmacy-flex pharmacy-justify-spacebetween pharmacy-center'
-    let sortTitle = document.createElement('h4')
-    sortTitle.innerHTML = 'Sort-By'
-    sortSection.appendChild(sortTitle)
-    let iconSection =document.createElement('div')
-    iconSection.className ='pharmacy-flex common-gap'
-    let iconAscending = document.createElement('span')
-    iconAscending.className ="material-symbols-outlined"
-    iconAscending.setAttribute('onClick','sortAscending(medListArr)')
-    iconAscending.innerHTML = 'arrow_downward'
-    iconSection.appendChild(iconAscending)
-    let iconDescending = document.createElement('span')
-    iconDescending.className = 'material-symbols-outlined'
-    iconDescending.setAttribute('onClick','sortDescending(medListArr)')
-    iconDescending.innerHTML = 'arrow_upward'
-    iconSection.appendChild(iconDescending)
-    sortSection.appendChild(iconSection)
-    document.getElementById('table-container').appendChild(sortSection)
-    document.getElementById('medicine').innerHTML = 'Medicine Name'
-    document.getElementById('med-quantity').innerHTML = 'Available Quantity'
+    // document.getElementById('table-container').innerHTML =''
+    // let tableHeader = document.createElement('div')
+    // tableHeader.className ='detail show-scroll'
+    // tableHeader.id = 'header'
+    // let headerOne = document.createElement('div')
+    // headerOne.id = 'medicine'
+    // headerOne.className = 'table-header-style'
+    // tableHeader.appendChild(headerOne)
+    // let headerTwo = document.createElement('div')
+    // headerTwo.id = 'med-quantity'
+    // headerTwo.className ='table-header-style'
+    // tableHeader.appendChild(headerTwo)
+    // let headerFour = document.createElement('div')
+    // headerFour.id = 'qty-box'
+    // headerFour.className = 'table-header-style'
+    // headerFour.innerHTML = 'Shop-Qty'
+    // tableHeader.appendChild(headerFour)
+    // let headerThree = document.createElement('div')
+    // headerThree.id = 'shop-logo'
+    // headerThree.className = 'table-header-style'
+    // headerThree.innerHTML = 'Shop'
+    // tableHeader.appendChild(headerThree)
+    // document.getElementById('table-container').appendChild(tableHeader);
+    // let sortSection = document.createElement('div')
+    // sortSection.className = 'sort-style pharmacy-flex pharmacy-justify-spacebetween pharmacy-center'
+    // let sortTitle = document.createElement('h4')
+    // sortTitle.innerHTML = 'Sort-By'
+    // sortSection.appendChild(sortTitle)
+    // let iconSection =document.createElement('div')
+    // iconSection.className ='pharmacy-flex common-gap'
+    // let iconAscending = document.createElement('span')
+    // iconAscending.className ="material-symbols-outlined"
+    // iconAscending.setAttribute('onClick','sortAscending(medListArr)')
+    // iconAscending.innerHTML = 'arrow_downward'
+    // iconSection.appendChild(iconAscending)
+    // let iconDescending = document.createElement('span')
+    // iconDescending.className = 'material-symbols-outlined'
+    // iconDescending.setAttribute('onClick','sortDescending(medListArr)')
+    // iconDescending.innerHTML = 'arrow_upward'
+    // iconSection.appendChild(iconDescending)
+    // sortSection.appendChild(iconSection)
+    // document.getElementById('table-container').appendChild(sortSection)
+    // document.getElementById('medicine').innerHTML = 'Medicine Name'
+    // document.getElementById('med-quantity').innerHTML = 'Available Quantity'
             for(let o=0; o<value.length; o++){
                 tableDetail = document.createElement('div')
                 tableDetail.className ='detail table-gap'
