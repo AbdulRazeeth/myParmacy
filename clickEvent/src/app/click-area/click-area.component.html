@@ -1,0 +1,3 @@
+<div class="play-ground" (dblclick)="clickedArea($event)" (click)="remove()">
+    <div *ngFor="let render of parentValue; index as i" class="dot"  [ngClass]="{'area-highlight-color':render.x == clickData.clickedAreaHighLightX}" [ngStyle]="{'left':render.x,'top':render.y}" (dblclick)="$event.stopPropagation()" (click)="highLight(render.x,$event)" routerLink="/ScaleValue/{{render.x}}" tabindex="0" (keydown.delete)="deleteButton(i)"></div>
+</div>
