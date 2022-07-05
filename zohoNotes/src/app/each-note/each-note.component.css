@@ -1,0 +1,15 @@
+.card-parent{
+    padding: 40px;
+    /* background-color: blue; */
+}
+.card{
+    width: 212px;
+    height: 212px;
+    cursor: pointer;
+    padding: 20px;
+    background-color: red;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

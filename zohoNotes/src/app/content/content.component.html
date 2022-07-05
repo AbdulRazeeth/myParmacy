@@ -1,0 +1,22 @@
+<div class="content-container">
+    <div class="content">
+         <div class="content-start">
+             <h1> Notebooks </h1>
+         </div>
+         <div class="content-end">
+             <div class="add-notebook" (click)="appendRequest($event)">
+                <span class="material-symbols-outlined"> add</span>
+                <p class="tyopography"> Notebook </p>
+             </div>
+             <div class="name">
+                <span class="material-symbols-outlined"> sort </span>
+                <p class="tyopography"> Name </p>
+             </div>
+         </div>
+    </div>
+    <div class="notebooks">
+        <div class="notebook-container">
+            <app-note-book *ngFor="let no of CreateBookArr;index as i" [parentData]='no' [indexData]="i"></app-note-book>
+        </div>
+    </div>
+</div>
