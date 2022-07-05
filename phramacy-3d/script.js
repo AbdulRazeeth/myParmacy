@@ -792,50 +792,50 @@ function deleteElement(clicked_id){
     sixthDelete.remove()
 }
 function tableGenerator(value){
-    // document.getElementById('table-container').innerHTML =''
-    // let tableHeader = document.createElement('div')
-    // tableHeader.className ='detail show-scroll'
-    // tableHeader.id = 'header'
-    // let headerOne = document.createElement('div')
-    // headerOne.id = 'medicine'
-    // headerOne.className = 'table-header-style'
-    // tableHeader.appendChild(headerOne)
-    // let headerTwo = document.createElement('div')
-    // headerTwo.id = 'med-quantity'
-    // headerTwo.className ='table-header-style'
-    // tableHeader.appendChild(headerTwo)
-    // let headerFour = document.createElement('div')
-    // headerFour.id = 'qty-box'
-    // headerFour.className = 'table-header-style'
-    // headerFour.innerHTML = 'Shop-Qty'
-    // tableHeader.appendChild(headerFour)
-    // let headerThree = document.createElement('div')
-    // headerThree.id = 'shop-logo'
-    // headerThree.className = 'table-header-style'
-    // headerThree.innerHTML = 'Shop'
-    // tableHeader.appendChild(headerThree)
-    // document.getElementById('table-container').appendChild(tableHeader);
-    // let sortSection = document.createElement('div')
-    // sortSection.className = 'sort-style pharmacy-flex pharmacy-justify-spacebetween pharmacy-center'
-    // let sortTitle = document.createElement('h4')
-    // sortTitle.innerHTML = 'Sort-By'
-    // sortSection.appendChild(sortTitle)
-    // let iconSection =document.createElement('div')
-    // iconSection.className ='pharmacy-flex common-gap'
-    // let iconAscending = document.createElement('span')
-    // iconAscending.className ="material-symbols-outlined"
-    // iconAscending.setAttribute('onClick','sortAscending(medListArr)')
-    // iconAscending.innerHTML = 'arrow_downward'
-    // iconSection.appendChild(iconAscending)
-    // let iconDescending = document.createElement('span')
-    // iconDescending.className = 'material-symbols-outlined'
-    // iconDescending.setAttribute('onClick','sortDescending(medListArr)')
-    // iconDescending.innerHTML = 'arrow_upward'
-    // iconSection.appendChild(iconDescending)
-    // sortSection.appendChild(iconSection)
-    // document.getElementById('table-container').appendChild(sortSection)
-    // document.getElementById('medicine').innerHTML = 'Medicine Name'
-    // document.getElementById('med-quantity').innerHTML = 'Available Quantity'
+    document.getElementById('table-container').innerHTML =''
+    let tableHeader = document.createElement('div')
+    tableHeader.className ='detail show-scroll'
+    tableHeader.id = 'header'
+    let headerOne = document.createElement('div')
+    headerOne.id = 'medicine'
+    headerOne.className = 'table-header-style'
+    tableHeader.appendChild(headerOne)
+    let headerTwo = document.createElement('div')
+    headerTwo.id = 'med-quantity'
+    headerTwo.className ='table-header-style'
+    tableHeader.appendChild(headerTwo)
+    let headerFour = document.createElement('div')
+    headerFour.id = 'qty-box'
+    headerFour.className = 'table-header-style'
+    headerFour.innerHTML = 'Shop-Qty'
+    tableHeader.appendChild(headerFour)
+    let headerThree = document.createElement('div')
+    headerThree.id = 'shop-logo'
+    headerThree.className = 'table-header-style'
+    headerThree.innerHTML = 'Shop'
+    tableHeader.appendChild(headerThree)
+    document.getElementById('table-container').appendChild(tableHeader);
+    let sortSection = document.createElement('div')
+    sortSection.className = 'sort-style pharmacy-flex pharmacy-justify-spacebetween pharmacy-center'
+    let sortTitle = document.createElement('h4')
+    sortTitle.innerHTML = 'Sort-By'
+    sortSection.appendChild(sortTitle)
+    let iconSection =document.createElement('div')
+    iconSection.className ='pharmacy-flex common-gap'
+    let iconAscending = document.createElement('span')
+    iconAscending.className ="material-symbols-outlined"
+    iconAscending.setAttribute('onClick','sortAscending(medListArr)')
+    iconAscending.innerHTML = 'arrow_downward'
+    iconSection.appendChild(iconAscending)
+    let iconDescending = document.createElement('span')
+    iconDescending.className = 'material-symbols-outlined'
+    iconDescending.setAttribute('onClick','sortDescending(medListArr)')
+    iconDescending.innerHTML = 'arrow_upward'
+    iconSection.appendChild(iconDescending)
+    sortSection.appendChild(iconSection)
+    document.getElementById('table-container').appendChild(sortSection)
+    document.getElementById('medicine').innerHTML = 'Medicine Name'
+    document.getElementById('med-quantity').innerHTML = 'Available Quantity'
             for(let o=0; o<value.length; o++){
                 tableDetail = document.createElement('div')
                 tableDetail.className ='detail table-gap'
