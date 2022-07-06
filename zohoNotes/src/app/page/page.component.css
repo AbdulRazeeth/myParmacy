@@ -11,6 +11,7 @@
     grid-template-rows: repeat(2,auto) 1fr auto;
     /* background-color: #abd1c9; */
     padding: 20px;
+    z-index: 20;
 }
 .title-container{
     width: 100%;
