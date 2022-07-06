@@ -1,7 +1,7 @@
 <div class="book-container">
     <div class="book-content">
         <div class="book-img">  
-            <div style="background-image: url({{imagePath}});" class="img-style" (click)="openNote()" routerLink="{{no.bookName}}{{indexValue+1}}" appHover>
+            <div style="background-image: url({{imagePath}});" class="img-style" (click)="openNote()" routerLink="/pages/{{no.bookName}}{{indexValue+1}}" appHover>
                 <span class="material-symbols-outlined option" ToolTip="Options" position="right" > more_horiz </span>
             </div>
         </div>

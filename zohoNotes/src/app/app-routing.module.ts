@@ -12,7 +12,7 @@ const routes: Routes = [
   {component:AllNotesComponent,path:'allnotes'},
   { component:FavoriteComponent,path:'favorite' },
   {component:SharedComponent,path:'shared'},
-  {component:NotePagesComponent,path:':id'},
+  {component:NotePagesComponent,path:'pages/:id'},
 
 ];
 
