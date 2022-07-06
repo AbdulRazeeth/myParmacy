@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ContentComponent } from './content/content.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { NotePagesComponent } from './note-pages/note-pages.component';
+import { PageComponent } from './page/page.component';
 import { SharedComponent } from './shared/shared.component';
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { component:FavoriteComponent,path:'favorite' },
   {component:SharedComponent,path:'shared'},
   {component:NotePagesComponent,path:'pages/:id'},
+  // {component:PageComponent,path:'openEditPage'}
 
 ];
 

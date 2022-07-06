@@ -10,6 +10,7 @@ export class NoteBookComponent implements OnInit {
   @Input('parentData') public no!:any
   @Input('indexData') public indexValue!:any
   @ViewChild('imgSection') imgElement!:ElementRef
+  @ViewChild('bookTitle') title!:ElementRef
   imagePath!:any
   createBook!:any
   constructor(public data:DataService) {
@@ -23,6 +24,10 @@ export class NoteBookComponent implements OnInit {
   openNote(){
     this.data.renderValue = this.no
     this.data.iteration = this.indexValue
+  }
+  editBookTitle(){
+    console.log('enter pressed')
+    this.no.bookName = this.title.nativeElement.innerHTML 
   }
 
 }

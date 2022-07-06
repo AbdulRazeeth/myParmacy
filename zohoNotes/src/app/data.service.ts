@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class DataService implements OnInit{
   searchResult:boolean=false
   editorResult:boolean=false
   bgColor!:number;
@@ -21,6 +21,8 @@ export class DataService {
   imgNo!:number;
   constructor() {
     console.log(this.colorsArr.length)
+   }
+   ngOnInit(): void {
    }
   updateBookMasterArr(){
     this.bgColor = Math.trunc(Math.random()*17)
