@@ -21,6 +21,7 @@
     position: sticky;
     top: 0;
     left: 0;
+    z-index: 4;
 }
 /* .search-style1{
     position: absolute;
