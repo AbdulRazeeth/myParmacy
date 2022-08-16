@@ -1,0 +1,288 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto;
+    padding: 20px;
+}
+.relationship-style{
+    color: green;
+    font-weight: normal;
+}
+.profile-style{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 50%;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    border: 2px solid black;
+}
+.generation-style{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 120px;
+}
+.father-coborn-style{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+.flex-style{
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+.flex-style-mother{
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+.my-self{
+    position: relative;
+}
+.my-self::after{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 380px;
+    transform: rotate(9deg);
+    left: 40%;
+    top: 100%;
+    background-color: black;
+}
+.my-self::before{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 401px;
+    transform: rotate(-16deg);
+    left: 88%;
+    top: 89%;
+    background-color: black;
+}
+.my-co-born{
+    position: relative;
+}
+.my-co-born::before{
+    content: '';
+    position: absolute;
+    width: 62px;
+    height: 2px;
+    background-color: black;
+    right: 100%;
+    top: 50%;
+}
+.father{
+    position: relative;
+}
+.father::before{
+    content: '';
+    position: absolute;
+    width: 131px;
+    height: 2px;
+    right: 40%;
+    top: -78%;
+    transform: rotate(46deg);
+    background-color: black;
+}
+.father::after{
+    content: '';
+    position: absolute;
+    width: 170px;
+    height: 2px;
+    right: 30%;
+    top: 211%;
+    transform: rotate(-56deg);
+    background-color: black;
+}
+.co-born{
+    position: relative;
+}
+.co-born::before{
+    content: '';
+    position: absolute;
+    width: 62px;
+    height: 2px;
+    right: 100%;
+    top: 50%;
+    background-color: black;
+}
+.venkatesh{
+    position: relative;
+}
+.venkatesh::after{
+    content: '';
+    position: absolute;
+    width: 128px;
+    height: 2px;
+    background-color: black;
+    left: 82%;
+    top: 143%;
+    transform: rotate(54deg);
+}
+.ganesh{
+    position: relative;
+}
+.ganesh::after{
+    content: '';
+    position: absolute;
+    width: 62px;
+    height: 2px;
+    background-color: black;
+    left: 100%;
+    top: 50%;
+}
+.muthu{
+ position: relative;   
+}
+.muthu::after{
+    content: '';
+    position: absolute;
+    width: 128px;
+    height: 2px;
+    background-color: black;
+    left: 82%;
+    bottom: 143%;
+    transform: rotate(-54deg);
+}
+.raji{
+    position: relative;
+}
+.raji::after{
+    content: '';
+    position: absolute;
+    width: 83px;
+    height: 2px;
+    background-color: black;
+    left: 92%;
+    top: 95%;
+    transform: rotate(40deg);
+}
+.saranya{
+    position: relative;
+}
+.saranya::after{
+    content: '';
+    position: absolute;
+    width: 83px;
+    height: 2px;
+    background-color: black;
+    left: 92%;
+    bottom: 95%;
+    transform: rotate(-40deg);
+}
+.mother{
+    position: relative;
+}
+.mother::after{
+    content: '';
+    position: absolute;
+    width: 62px;
+    height: 2px;
+    background-color: black;
+    top: 50%;
+    left: 100%;
+}
+.Prakash{
+    position: relative;
+}
+.Prakash::before{
+    content: '';
+    position: absolute;
+    width: 130px;
+    height: 2px;
+    background-color: black;
+    right: 82%;
+    top: 139%;
+    transform: rotate(-48deg);
+}
+.Karthiga{
+    position: relative;
+}
+.Karthiga::before{
+    content: '';
+    position: absolute;
+    width: 62px;
+    height: 2px;
+    background-color: black;
+    right: 100%;
+    top: 50%;
+}
+.Santhosh{
+    position: relative;
+}
+.Santhosh::before{
+    content: '';
+    position: absolute;
+    width: 130px;
+    height: 2px;
+    background-color: black;
+    right: 82%;
+    bottom: 139%;
+    transform: rotate(48deg);
+}
+.parent-line{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.parent-line::after{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 38.5vh;
+    top: 20px;
+    left: 50%;
+    background-color: black;
+}
+.parent-line::before{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 43vh;
+    top: 0;
+    left: -182%;
+    background-color: black;
+    transform: rotate(26deg);
+}
+.parent-mother{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.parent-mother::after{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 38.5vh;
+    top: 20px;
+    left: 50%;
+    background-color: black;
+}
+.parent-mother::before{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 43.5vh;
+    background-color: black;
+    top: 2px;
+    left: 122%;
+    transform: rotate(-24deg);
+}
