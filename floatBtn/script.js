@@ -2,169 +2,148 @@
 const template =document.createElement('template')
 template.innerHTML = `
      <style>
-        .container {
-            position:absolute;
-            display:flex;
+        .float-container{
+            display: flex;
+            flex-direction: column;
             align-items:center;
-            justify-content:center;
-            flex-direction:column;
-            gap:10px;
-            top:10%;
-            left:40%;
-        } 
-        .add-btn {
-            display:block;
-            width : 60px;
-            height : 60px;
-            border-radius : 50%;
-            background : blue;
-            box-sizing:border-box;
+            justify-content: center;
+            gap: 20px;
         }
-        .add-symbol {
-            width:100%;
-            height:100%;
-            position:relative
+        .float-btn-style{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #3B82F6;
+            background-color: #3B82F6;
+            padding: 15px;
+            border-radius: 50%;
+            transition: transform .25s cubic-bezier(.4,0,.2,1) 0ms;
+            will-change: transform;
         }
-        .add-symbol::before{
-            content: '';
-            position: absolute;
-            width: 3%;
-            height: 40%;
-            background: #fff;
-            top: 30%;
-            left: 48.5%;
+        .float-btn-style:focus{
+            box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #9dc1fb, 0 1px 2px 0 black;
         }
-        .add-symbol::after{
-            content: '';
-            position: absolute;
-            height: 3%;
-            width: 40%;
-            background: #fff;
-            left: 30%;
-            top: 49%;
+        .float-btn-style:hover{
+            background: #2563eb;
+            color: #ffffff;
+            border-color: #2563eb;
         }
-        .close-btn {
+        .icon-style{
+            font-size: 30px !important;
+            color: #ffffff;
+        }
+        .close-btn{
             display:none;
-            width : 60px;
-            height : 60px;
-            border-radius : 50%;
-            background : blue;
-            box-sizing:border-box;
-            transform: rotate(45deg)
-        }
-        .close-symbol {
-            width:100%;
-            height:100%;
-            position:relative
-        }
-        .close-symbol::before{
-            content: '';
-            position: absolute;
-            width: 3%;
-            height: 40%;
-            background: #fff;
-            top: 30%;
-            left: 48.5%;
-        }
-        .close-symbol::after{
-            content: '';
-            position: absolute;
-            height: 3%;
-            width: 40%;
-            background: #fff;
-            left: 30%;
-            top: 49%;
         }
         .icon-list{
-            width:100%;
-            display:none;
-            flex-direction:column;
-            gap:10px;
-            justify-content:center;
-            align-items:center;
-            margin:0;
-            padding:0;
-            transition:transform 1.6s cubic-bezier(0.12, 0, 0.39, 0);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+            margin-block-start: 0;
+            margin-block-end: 0;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start:0;
         }
-        .icon-list li{
-            list-style-type:none;
+        .menu-hide{
+            transform:scale(0);
+            opacity:0;
+            transition: transform .2s cubic-bezier(.4,0,.2,1) 0ms,opacity .8s;
+            will-change: transform;
+        }
+        .menu-show{
+            transform:scale(1);
+            opacity:1;
+            transition: transform .2s cubic-bezier(.4,0,.2,1) 0ms,opacity .8s;
+            will-change: transform;
         }
         .list-icon-style{
-            display:flex;
-            align-item:center;
-            justify-content:center;
-            padding:12px;
-            border-radius:50%;
-            background:gray;
-            cursor:pointer;
-            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #495057;
+            color: #fff;
+            padding: 12px;
+            border-radius: 50%;
         }
      </style>
-
-
-
-     <div class='container'>
-        <div class='add-btn'>
-            <div class='add-symbol'></div>
+        <div class="float-container">
+            <button class="float-btn-style open-btn">
+                <span class="material-symbols-outlined icon-style "> add </span>
+            </button>
+            <ul class="icon-list">
+                <li class="menu menu-hide">
+                    <a class="list-icon-style">
+                        <span class="material-symbols-outlined"> edit</span>
+                    </a>
+                </li>
+                <li class="menu menu-hide">
+                    <a class="list-icon-style">
+                        <span class="material-symbols-outlined"> refresh</span>
+                    </a>
+                </li>
+                <li class="menu menu-hide">
+                    <a class="list-icon-style">
+                        <span class="material-symbols-outlined"> delete</span>
+                    </a>
+                </li>
+                <li class="menu menu-hide">
+                    <a class="list-icon-style">
+                        <span class="material-symbols-outlined"> upload</span>
+                    </a>
+                </li>
+                <li class="menu menu-hide">
+                    <a class="list-icon-style">
+                        <span class="material-symbols-outlined"> pin_invoke</span>
+                    </a>
+                </li>
+            </ul>
         </div>
-        <div class='close-btn'>
-            <div class='close-symbol'></div>
-        </div>
-        <ul class='icon-list'>
-            <li>
-               <a class='list-icon-style'>
-                 <img src='./edit.png' width='30px' height='30px'>
-               </a>
-            </li>
-            <li>
-               <a class='list-icon-style'>
-                 <img src='./reload.png' width='30px' height='30px'>
-               </a>
-            </li>
-            <li>
-               <a class='list-icon-style'>
-                 <img src='./delete.png' width='30px' height='30px'>
-               </a>
-            </li>
-            <li>
-               <a class='list-icon-style'>
-                 <img src='./upload.png' width='30px' height='30px'>
-               </a>
-            </li>
-            <li>
-               <a class='list-icon-style'>
-                 <img src='./external-link.png' width='30px' height='30px'>
-               </a>
-            </li>
-        </ul>
-     </div>
 `
 class floatBtn extends HTMLElement {
     constructor () {
         super ();
         this.attachShadow({mode:'open'})
+        this.shadowRoot.innerHTML=`<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /><style>@font-face {
+            font-family: 'Material Symbols Outlined';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v47/kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1n-q_4MrImHCIJIZrDCvHOej.woff2) format('woff2');
+          }</style>`
         this.shadowRoot.appendChild(template.content.cloneNode(true))
     }
+    BoolValue = false;
+    decideValue(){
+        this.BoolValue = !this.BoolValue
+        this.openIconList(this.BoolValue)
+    }
     openIconList(value){
-        const openBtn = this.shadowRoot.querySelector('.add-btn')
-        const closeBtn = this.shadowRoot.querySelector('.close-btn')
-        const iconList = this.shadowRoot.querySelector('.icon-list')
+        const openBtn = this.shadowRoot.querySelector('.open-btn')
+        const menuList =this.shadowRoot.querySelectorAll('.menu')
+        const arrLength = menuList.length -1
         if(value === true){
-            openBtn.style.display = 'none'
-            closeBtn.style.display = 'block'
-            iconList.style.display = 'flex'
+            openBtn.style.transform = 'rotate(45deg)'
+            for(let i=0; i<menuList.length; i++){
+                menuList[i].classList.add('menu-show')
+                menuList[i].classList.remove('menu-hide')
+                menuList[i].style.transitionDelay = `${i*30}ms`
+            }
         }else{
-            openBtn.style.display = 'block'
-            closeBtn.style.display = 'none'
-            iconList.style.display = 'none'
+            openBtn.style.transform = 'rotate(0)'
+            for(let i=0; i<menuList.length; i++){
+                menuList[i].classList.add('menu-hide')
+                menuList[i].classList.remove('menu-show')
+                menuList[i].style.transitionDelay = `${arrLength*30/(i+1)}ms`
+            }
         }
     }
     connectedCallback(){
-        this.shadowRoot.querySelector('.add-btn').addEventListener('click',()=>{
-            this.openIconList(true)
-        })
-        this.shadowRoot.querySelector('.close-btn').addEventListener('click',()=>{
-            this.openIconList(false)
+        const menuList =this.shadowRoot.querySelectorAll('.menu')
+        this.shadowRoot.querySelector('.open-btn').addEventListener('click',()=>{
+            this.decideValue()
         })
         if(this.getAttribute('set-background')){
             this.shadowRoot.querySelector('.add-btn').style.background = this.getAttribute('set-background')
@@ -173,6 +152,35 @@ class floatBtn extends HTMLElement {
         if(this.getAttribute('set-color')){
             this.shadowRoot.querySelector('.add-btn').style.color = this.getAttribute('set-color')
             this.shadowRoot.querySelector('.close-btn').style.background = this.getAttribute('set-background')
+        }
+        if(this.getAttribute('button-position')==='right'){
+            this.shadowRoot.querySelector('.float-container').style.flexDirection ='row'
+            this.shadowRoot.querySelector('.icon-list').style.flexDirection ='row'
+        }
+        if(this.getAttribute('button-position')==='left'){
+            this.shadowRoot.querySelector('.float-container').style.flexDirection ='row-reverse'
+            this.shadowRoot.querySelector('.icon-list').style.flexDirection ='row-reverse'
+        }
+        if(this.getAttribute('button-position')==='top'){
+            this.shadowRoot.querySelector('.float-container').style.flexDirection ='column-reverse'
+            this.shadowRoot.querySelector('.icon-list').style.flexDirection ='column-reverse'
+        }
+        if(this.getAttribute('button-position')==='bottom'){
+            this.shadowRoot.querySelector('.float-container').style.flexDirection ='column'
+            this.shadowRoot.querySelector('.icon-list').style.flexDirection ='column'
+        }
+        if(this.getAttribute('button-position')==='circle'){
+            this.shadowRoot.querySelector('.float-container').style.flexDirection ='row'
+            this.shadowRoot.querySelector('.float-container').style.gap ='0'
+            this.shadowRoot.querySelector('.icon-list').style.flexDirection ='row'
+            this.shadowRoot.querySelector('.icon-list').style.gap ='0'
+            this.shadowRoot.querySelector('.icon-list').style.position ='relative'
+            for(let i=0; i<menuList.length; i++){
+                menuList[i].style.position = 'absolute'
+                menuList[i].style.top = `${i*20}px`
+                menuList[i].style.left = `${i*7}px`
+            }
+
         }
     }
 }
