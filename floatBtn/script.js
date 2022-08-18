@@ -8,6 +8,7 @@ template.innerHTML = `
             align-items:center;
             justify-content: center;
             gap: 20px;
+            position:relative;
         }
         .float-btn-style{
             display: flex;
@@ -19,6 +20,22 @@ template.innerHTML = `
             border-radius: 50%;
             transition: transform .25s cubic-bezier(.4,0,.2,1) 0ms;
             will-change: transform;
+        }
+        .set-float-btn{
+            position:absolute;
+            flex-direction:row;
+        }
+        .float-btn-common{
+            left:50%;
+            top:50%;
+        }
+        .float-btn-top{
+            left:50%;
+            bottom:50%;
+        }
+        .float-btn-left{
+            top:50%;
+            right:50%;
         }
         .float-btn-style:focus{
             box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #9dc1fb, 0 1px 2px 0 black;
@@ -32,9 +49,6 @@ template.innerHTML = `
             font-size: 30px !important;
             color: #ffffff;
         }
-        .close-btn{
-            display:none;
-        }
         .icon-list{
             display: flex;
             flex-direction: column;
@@ -47,6 +61,10 @@ template.innerHTML = `
             margin-inline-start: 0px;
             margin-inline-end: 0px;
             padding-inline-start:0;
+        }
+        .icon-list-position{
+            position:relative;
+            flex-direction:row;
         }
         .menu-hide{
             transform:scale(0);
@@ -68,6 +86,144 @@ template.innerHTML = `
             color: #fff;
             padding: 12px;
             border-radius: 50%;
+        }
+        .circle{
+            position:absolute;
+        }
+        .circle:nth-child(1){
+            left:87px;
+            top:7px;
+        }
+        .circle:nth-child(2){
+            left:31.7214px;
+            top:83.0845px;
+        }
+        .circle:nth-child(3){
+            left:-57.7214px;
+            top:54.0228px;
+        }
+        .circle:nth-child(4){
+            left:-57.7214px;
+            top:-40.0228px;
+        }
+        .circle:nth-child(5){
+            left:31.7214px;
+            top:-69.0845px;
+        }
+        .semi-circle{
+            position:absolute;
+        }
+        .semi-circle:nth-child(1){
+            left:90px;
+            top:7px;
+        }
+        .semi-circle:nth-child(2){
+            left:74.5685px;
+            top:62.5685px;
+        }
+        .semi-circle:nth-child(3){
+            left:7.83859px;
+            top:90px;
+        }
+        .semi-circle:nth-child(4){
+            left:-64.5685px;
+            top:62.5685px;
+        }
+        .semi-circle:nth-child(5){
+            left:-80px;
+            top:7px;
+        }
+        .semi-circle-top{
+            position:absolute;
+        }
+        .semi-circle-top:nth-child(1){
+            left:90px;
+            bottom:7px;
+        }
+        .semi-circle-top:nth-child(2){
+            left:74.5685px;
+            bottom:62.5685px;
+        }
+        .semi-circle-top:nth-child(3){
+            left:7.83859px;
+            bottom:90px;
+        }
+        .semi-circle-top:nth-child(4){
+            left:-64.5685px;
+            bottom:62.5685px;
+        }
+        .semi-circle-top:nth-child(5){
+            left:-80px;
+            bottom:7px;
+        }
+        .semi-circle-right{
+            position:absolute;
+        }
+        .semi-circle-right:nth-child(1){
+            top:90px;
+            left:7px;
+        }
+        .semi-circle-right:nth-child(2){
+            top:74.5685px;
+            left:62.5685px;
+        }
+        .semi-circle-right:nth-child(3){
+            top:7.83859px;
+            left:90px;
+        }
+        .semi-circle-right:nth-child(4){
+            top:-64.5685px;
+            left:62.5685px;
+        }
+        .semi-circle-right:nth-child(5){
+            top:-80px;
+            left:7px;
+        }
+        .semi-circle-left{
+            position:absolute;
+        }
+        .semi-circle-left:nth-child(1){
+            top:90px;
+            right:7px;
+        }
+        .semi-circle-left:nth-child(2){
+            top:74.5685px;
+            right:62.5685px;
+        }
+        .semi-circle-left:nth-child(3){
+            top:7.83859px;
+            right:90px;
+        }
+        .semi-circle-left:nth-child(4){
+            top:-64.5685px;
+            right:62.5685px;
+        }
+        .semi-circle-left:nth-child(5){
+            top:-80px;
+            right:7px;
+        }
+        .quarter-circle-downn-right{
+            position:absolute;
+        }
+        .quarter-circle-downn-right:nth-child(1){
+            left:7px;
+            top:127px;
+        }
+        .quarter-circle-downn-right:nth-child(2){
+            left:52.922px;
+            top:117.866px;
+        }
+        .quarter-circle-downn-right:nth-child(3){
+            left:91.8528px;
+            top:91.8528px;
+        }
+        .quarter-circle-downn-right:nth-child(4){
+            left:117.866px;
+            top:52.922px;
+        }
+        .quarter-circle-downn-right:nth-child(5){
+            left:127px;
+            top:14.34788px;
         }
      </style>
         <div class="float-container">
@@ -169,18 +325,55 @@ class floatBtn extends HTMLElement {
             this.shadowRoot.querySelector('.float-container').style.flexDirection ='column'
             this.shadowRoot.querySelector('.icon-list').style.flexDirection ='column'
         }
-        if(this.getAttribute('button-position')==='circle'){
-            this.shadowRoot.querySelector('.float-container').style.flexDirection ='row'
-            this.shadowRoot.querySelector('.float-container').style.gap ='0'
+        if(this.getAttribute('icon-display')==='circle'){
             this.shadowRoot.querySelector('.icon-list').style.flexDirection ='row'
-            this.shadowRoot.querySelector('.icon-list').style.gap ='0'
-            this.shadowRoot.querySelector('.icon-list').style.position ='relative'
-            for(let i=0; i<menuList.length; i++){
-                menuList[i].style.position = 'absolute'
-                menuList[i].style.top = `${i*20}px`
-                menuList[i].style.left = `${i*7}px`
-            }
-
+            this.shadowRoot.querySelector('.float-btn-style').classList.add('set-float-btn','float-btn-common')
+            this.shadowRoot.querySelector('.icon-list').classList.add('icon-list-position')
+            menuList.forEach((menu)=>{
+                menu.classList.add('circle')
+            })
+        }
+        // if(this.getAttribute('icon-display')==='semi-circle'){
+        //     this.shadowRoot.querySelector('.float-btn-style').classList.add('set-float-btn','float-btn-top')
+        //     this.shadowRoot.querySelector('.icon-list').classList.add('icon-list-position')
+        //     menuList.forEach((menu)=>{
+        //         menu.classList.add('semi-circle-top')
+        //     })
+        // }
+        if(this.getAttribute('icon-display')==='semi-circle' && this.getAttribute('circle-position')==='bottom'){
+            this.shadowRoot.querySelector('.float-btn-style').classList.add('set-float-btn','float-btn-common')
+            this.shadowRoot.querySelector('.icon-list').classList.add('icon-list-position')
+            menuList.forEach((menu)=>{
+                menu.classList.add('semi-circle')
+            })
+        }
+        if(this.getAttribute('icon-display')==='semi-circle' && this.getAttribute('circle-position')==='top'){
+            this.shadowRoot.querySelector('.float-btn-style').classList.add('set-float-btn','float-btn-top')
+            this.shadowRoot.querySelector('.icon-list').classList.add('icon-list-position')
+            menuList.forEach((menu)=>{
+                menu.classList.add('semi-circle-top')
+            })
+        }
+        if(this.getAttribute('icon-display')==='semi-circle' && this.getAttribute('circle-position')==='right'){
+            this.shadowRoot.querySelector('.float-btn-style').classList.add('set-float-btn','float-btn-common')
+            this.shadowRoot.querySelector('.icon-list').classList.add('icon-list-position')
+            menuList.forEach((menu)=>{
+                menu.classList.add('semi-circle-right')
+            })
+        }
+        if(this.getAttribute('icon-display')==='semi-circle' && this.getAttribute('circle-position')==='left'){
+            this.shadowRoot.querySelector('.float-btn-style').classList.add('set-float-btn','float-btn-left')
+            this.shadowRoot.querySelector('.icon-list').classList.add('icon-list-position')
+            menuList.forEach((menu)=>{
+                menu.classList.add('semi-circle-left')
+            })
+        }
+        if(this.getAttribute('icon-display')==='quarter-circle' && this.getAttribute('circle-position')==='down-right'){
+            this.shadowRoot.querySelector('.float-btn-style').classList.add('set-float-btn','float-btn-left')
+            this.shadowRoot.querySelector('.icon-list').classList.add('icon-list-position')
+            menuList.forEach((menu)=>{
+                menu.classList.add('quarter-circle-downn-right')
+            })
         }
     }
 }
